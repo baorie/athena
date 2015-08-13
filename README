@@ -1,0 +1,55 @@
+Contents:
+
+athena4.2: source code for Athena (see https://trac.princeton.edu/Athena/)
+run: the run directory, containing
+     py: contains plotting program plotwidth.py
+     m*: sample test runs
+
+Requirements:
+C-compiler
+python (including numpy and matplotlib)
+terminal window (all this runs in a terminal)
+
+I'm assuming that you unpacked this in your home directory, hence, I give the paths as ~/kh/...
+
+To plot some results:
+I already ran a few test cases. To plot them, just run the python script plotwidth.py.
+You will have to adjust the path to your specific system (it still contains my user name).
+You should see a figure with 3 panels. The top shows the width of the shear layer 
+against time (the red lines indicate the regions of the linear fits to determine the growth rate),
+the center figure shows the growth rate of the instability against the Mach number 
+(blue dots are measurements, black line is theoretically expected result),
+and the bottom figure shows the residuals (i.e. normalized difference between measurement and
+expectation).
+
+To run your own models (see also "quick start" on webpage above):
+(1) Change into athena4.2, type 
+    autoconf
+(2) type 
+    ./conf-kh.sh
+    You should get a lengthy list of things the configuration script is running through).
+(3) type 
+    make all
+(4) Upon success, the executable will be in athena4.2/bin/athena
+    It's good practice to keep source code and data separate, so I'd copy the executable to 
+    a directory of your choice within ~/kh/run/:
+    cd ~/kh/run
+    mkdir test
+    cd test
+    cp ~/kh/athena4.2/bin/athena .
+(5) Copy one of the parameter files athinput.kh from e.g. ~/kh/run/m01r01/ into your directory.
+    cp ~/kh/run/m01r01/athinput.kh .
+(6) type
+    athena -i athinput.kh
+    
+    The code will spit out each timestep information, including width of the shear layer.
+(7) To make this readable for plotwidth.py, instead of (6), type
+    athena -i athinput.kh > athoutput.kh
+     
+    This will give you the same output as (6), but with everything neatly in a file, which can 
+    be read by plotwidth.py.
+
+
+    
+    
+    

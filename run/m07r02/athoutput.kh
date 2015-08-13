@@ -1,0 +1,1428 @@
+Simulation started on Mon Jul 13 10:54:21 2015
+
+Added out1
+# --------------------- PAR_DUMP -----------------------
+
+<comment>
+problem = KH instability of slip surface     # runs KH test on Athena webpage
+author  = J. Stone and T. Gardiner          
+config  = --with-gas=hydro --with-problem=kh
+
+<job>
+problem_id  = kh # problem ID: basename of output filenames
+maxout      = 1  # Output blocks number from 1 -> maxout
+num_domains = 1  # number of Domains in Mesh
+
+<output1>
+out_fmt = hst                   # History data dump
+dt      = 0.05                  # time increment between outputs
+time    = 0.000000000000000e+00 # Default Value
+num     = 0                     # Default Value
+level   = -1                    # Default Value
+domain  = -1                    # Default Value
+id      = out1                  # Default Value
+out     = cons                  # Default Value
+
+<output2>
+out_fmt = bin # Binary data dump
+dt      = 0.1 # time increment between outputs
+
+<output3>
+dt      = 0.1    
+out     = Sc     
+id      = Sc     
+type    = slice  
+out_fmt = ppm    
+dmin    = 0.1    
+dmax    = 1.2    
+palette = rainbow
+
+<time>
+cour_no = 0.8     # The Courant, Friedrichs, & Lewy (CFL) Number
+nlim    = 100000  # cycle limit
+tlim    = 2.85714 # time limit
+
+<domain1>
+level  = 0    # refinement level this Domain (root=0)
+Nx1    = 128  # Number of zones in X1-direction
+x1min  = -1.0 # minimum value of X1
+x1max  = 1.0  # maximum value of X1
+bc_ix1 = 4    # boundary condition flag for inner-I (X1)
+bc_ox1 = 4    # boundary condition flag for outer-I (X1)
+Nx2    = 128  # Number of zones in X2-direction
+x2min  = -1.0 # minimum value of X2
+x2max  = 1.0  # maximum value of X2
+bc_ix2 = 4    # boundary condition flag for inner-J (X2)
+bc_ox2 = 4    # boundary condition flag for outer-J (X2)
+Nx3    = 1    # Number of zones in X3-direction
+x3min  = -0.5 # minimum value of X3
+x3max  = 0.5  # maximum value of X3
+bc_ix3 = 4    # boundary condition flag for inner-K (X3)
+bc_ox3 = 4    # boundary condition flag for outer-K (X3)
+
+<domain2>
+level = 1   # refinement level this Domain (root=0)
+Nx1   = 128 # Number of zones in X1-direction
+Nx2   = 16  # Number of zones in X2-direction
+Nx3   = 1   # Number of zones in X3-direction
+iDisp = 0   # i-displacement measured in cells of this level
+jDisp = 8   # j-displacement measured in cells of this level
+kDisp = 0   # k-displacement measured in cells of this level
+
+<domain3>
+level = 1   # refinement level this Domain (root=0)
+Nx1   = 128 # Number of zones in X1-direction
+Nx2   = 16  # Number of zones in X2-direction
+Nx3   = 1   # Number of zones in X3-direction
+iDisp = 0   # i-displacement measured in cells of this level
+jDisp = 40  # j-displacement measured in cells of this level
+kDisp = 0   # k-displacement measured in cells of this level
+
+<domain4>
+level = 2   # refinement level this Domain (root=0)
+Nx1   = 256 # Number of zones in X1-direction
+Nx2   = 16  # Number of zones in X2-direction
+Nx3   = 1   # Number of zones in X3-direction
+iDisp = 0   # i-displacement measured in cells of this level
+jDisp = 24  # j-displacement measured in cells of this level
+kDisp = 0   # k-displacement measured in cells of this level
+
+<domain5>
+level = 2   # refinement level this Domain (root=0)
+Nx1   = 256 # Number of zones in X1-direction
+Nx2   = 16  # Number of zones in X2-direction
+Nx3   = 1   # Number of zones in X3-direction
+iDisp = 0   # i-displacement measured in cells of this level
+jDisp = 88  # j-displacement measured in cells of this level
+kDisp = 0   # k-displacement measured in cells of this level
+
+<problem>
+gamma = 1.4    # gamma = C_p/C_v
+iprob = 3     
+amp   = 1.0e-2
+drat  = 2.0   
+vflow = 0.7   
+width = 0.02  
+sigma = 0.1   
+
+<configure>
+problem            = kh        # Name of the problem file
+gas                = hydro     # Hydrodynamic gas
+eq_state           = adiabatic # Equation of state
+nscalars           = 1         # Number of passive scalars
+self-gravity       = OFF       # Self-gravity algorithm
+resistivity        = OFF       # resistivity algorithm
+viscosity          = OFF       # viscosity algorithm
+thermal conduction = OFF       # conduction algorithm
+particles          = none      # no particles
+coord              = Cartesian # coordinate system
+special relativity = no        # Special relativistic?
+order              = 3p        # Order of accuracy
+flux               = roe       # Flux function
+integrator         = ctu       # Unsplit integrator
+precision          = double    # Type of Real variables
+write_ghost        = no        # Ghost cells included in output?
+mpi                = no        # Is code MPI parallel enabled?
+H-correction       = no        # H-correction enabled?
+FFT                = no        # FFT enabled?
+ShearingBox        = no        # Shearing box enabled?
+FARGO              = no        # FARGO enabled?
+SMR                = no        # SMR enabled?
+
+<log>
+file_open = 0 # Default Value
+iflush    = 1 # Default Value
+out_level = 0 # Default Value
+err_level = 0 # Default Value
+
+# --------------------- PAR_DUMP -------------------------
+
+Setup complete, entering main loop...
+
+cycle=0 time=0.000000e+00 next dt=4.862245e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88641e-01   3.20312e-01   6.41773e-02
+cycle=1 time=4.862245e-03 next dt=4.862061e-03 last dt=4.862245e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88642e-01   3.20312e-01   6.41777e-02
+cycle=2 time=9.724306e-03 next dt=4.861836e-03 last dt=4.862061e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88642e-01   3.20312e-01   6.41783e-02
+cycle=3 time=1.458614e-02 next dt=4.861557e-03 last dt=4.861836e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88643e-01   3.20312e-01   6.41792e-02
+cycle=4 time=1.944770e-02 next dt=4.861251e-03 last dt=4.861557e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88644e-01   3.20312e-01   6.41802e-02
+cycle=5 time=2.430895e-02 next dt=4.860919e-03 last dt=4.861251e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88645e-01   3.20312e-01   6.41814e-02
+cycle=6 time=2.916987e-02 next dt=4.860558e-03 last dt=4.860919e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88645e-01   3.20312e-01   6.41828e-02
+cycle=7 time=3.403043e-02 next dt=4.860173e-03 last dt=4.860558e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88646e-01   3.20312e-01   6.41841e-02
+cycle=8 time=3.889060e-02 next dt=4.859768e-03 last dt=4.860173e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88646e-01   3.20312e-01   6.41854e-02
+cycle=9 time=4.375037e-02 next dt=4.859352e-03 last dt=4.859768e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88647e-01   3.20312e-01   6.41867e-02
+cycle=10 time=4.860972e-02 next dt=4.858945e-03 last dt=4.859352e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88647e-01   3.20312e-01   6.41880e-02
+cycle=11 time=5.346867e-02 next dt=4.858558e-03 last dt=4.858945e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88648e-01   3.20312e-01   6.41891e-02
+cycle=12 time=5.832722e-02 next dt=4.858209e-03 last dt=4.858558e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88648e-01   3.20312e-01   6.41902e-02
+cycle=13 time=6.318543e-02 next dt=4.857890e-03 last dt=4.858209e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88648e-01   3.20312e-01   6.41912e-02
+cycle=14 time=6.804332e-02 next dt=4.857604e-03 last dt=4.857890e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88649e-01   3.20312e-01   6.41920e-02
+cycle=15 time=7.290093e-02 next dt=4.857316e-03 last dt=4.857604e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88649e-01   3.20312e-01   6.41928e-02
+cycle=16 time=7.775824e-02 next dt=4.857050e-03 last dt=4.857316e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88649e-01   3.20312e-01   6.41934e-02
+cycle=17 time=8.261529e-02 next dt=4.856808e-03 last dt=4.857050e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88649e-01   3.20312e-01   6.41940e-02
+cycle=18 time=8.747210e-02 next dt=4.856586e-03 last dt=4.856808e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88649e-01   3.20312e-01   6.41944e-02
+cycle=19 time=9.232869e-02 next dt=4.856388e-03 last dt=4.856586e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88650e-01   3.20312e-01   6.41948e-02
+cycle=20 time=9.718507e-02 next dt=4.856216e-03 last dt=4.856388e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88650e-01   3.20312e-01   6.41951e-02
+cycle=21 time=1.020413e-01 next dt=4.856067e-03 last dt=4.856216e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88650e-01   3.20312e-01   6.41954e-02
+cycle=22 time=1.068974e-01 next dt=4.855937e-03 last dt=4.856067e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88650e-01   3.20312e-01   6.41957e-02
+cycle=23 time=1.117533e-01 next dt=4.855820e-03 last dt=4.855937e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88650e-01   3.20312e-01   6.41959e-02
+cycle=24 time=1.166091e-01 next dt=4.855717e-03 last dt=4.855820e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88650e-01   3.20312e-01   6.41961e-02
+cycle=25 time=1.214648e-01 next dt=4.855630e-03 last dt=4.855717e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88650e-01   3.20312e-01   6.41963e-02
+cycle=26 time=1.263205e-01 next dt=4.855569e-03 last dt=4.855630e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88651e-01   3.20312e-01   6.41965e-02
+cycle=27 time=1.311760e-01 next dt=4.855510e-03 last dt=4.855569e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88651e-01   3.20312e-01   6.41967e-02
+cycle=28 time=1.360315e-01 next dt=4.855480e-03 last dt=4.855510e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88651e-01   3.20312e-01   6.41969e-02
+cycle=29 time=1.408870e-01 next dt=4.855480e-03 last dt=4.855480e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88651e-01   3.20312e-01   6.41971e-02
+cycle=30 time=1.457425e-01 next dt=4.855509e-03 last dt=4.855480e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88651e-01   3.20312e-01   6.41973e-02
+cycle=31 time=1.505980e-01 next dt=4.855557e-03 last dt=4.855509e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88651e-01   3.20312e-01   6.41975e-02
+cycle=32 time=1.554536e-01 next dt=4.855615e-03 last dt=4.855557e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88651e-01   3.20312e-01   6.41977e-02
+cycle=33 time=1.603092e-01 next dt=4.855693e-03 last dt=4.855615e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88652e-01   3.20312e-01   6.41980e-02
+cycle=34 time=1.651649e-01 next dt=4.855787e-03 last dt=4.855693e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88652e-01   3.20312e-01   6.41983e-02
+cycle=35 time=1.700207e-01 next dt=4.855886e-03 last dt=4.855787e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88652e-01   3.20311e-01   6.41987e-02
+cycle=36 time=1.748765e-01 next dt=4.856001e-03 last dt=4.855886e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88652e-01   3.20311e-01   6.41990e-02
+cycle=37 time=1.797326e-01 next dt=4.856132e-03 last dt=4.856001e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88652e-01   3.20311e-01   6.41994e-02
+cycle=38 time=1.845887e-01 next dt=4.856278e-03 last dt=4.856132e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88652e-01   3.20311e-01   6.41998e-02
+cycle=39 time=1.894450e-01 next dt=4.856431e-03 last dt=4.856278e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88653e-01   3.20311e-01   6.42003e-02
+cycle=40 time=1.943014e-01 next dt=4.856571e-03 last dt=4.856431e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88653e-01   3.20311e-01   6.42007e-02
+cycle=41 time=1.991580e-01 next dt=4.856632e-03 last dt=4.856571e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88653e-01   3.20311e-01   6.42012e-02
+cycle=42 time=2.040146e-01 next dt=4.856674e-03 last dt=4.856632e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88653e-01   3.20311e-01   6.42018e-02
+cycle=43 time=2.088713e-01 next dt=4.856685e-03 last dt=4.856674e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88653e-01   3.20311e-01   6.42023e-02
+cycle=44 time=2.137280e-01 next dt=4.856615e-03 last dt=4.856685e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88654e-01   3.20312e-01   6.42029e-02
+cycle=45 time=2.185846e-01 next dt=4.856525e-03 last dt=4.856615e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88654e-01   3.20312e-01   6.42035e-02
+cycle=46 time=2.234411e-01 next dt=4.856423e-03 last dt=4.856525e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88654e-01   3.20312e-01   6.42041e-02
+cycle=47 time=2.282975e-01 next dt=4.856311e-03 last dt=4.856423e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88654e-01   3.20312e-01   6.42048e-02
+cycle=48 time=2.331538e-01 next dt=4.856180e-03 last dt=4.856311e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88655e-01   3.20312e-01   6.42055e-02
+cycle=49 time=2.380100e-01 next dt=4.856027e-03 last dt=4.856180e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88655e-01   3.20312e-01   6.42062e-02
+cycle=50 time=2.428660e-01 next dt=4.855866e-03 last dt=4.856027e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88655e-01   3.20312e-01   6.42069e-02
+cycle=51 time=2.477219e-01 next dt=4.855694e-03 last dt=4.855866e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88655e-01   3.20312e-01   6.42077e-02
+cycle=52 time=2.525776e-01 next dt=4.855488e-03 last dt=4.855694e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88656e-01   3.20312e-01   6.42085e-02
+cycle=53 time=2.574331e-01 next dt=4.855273e-03 last dt=4.855488e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88656e-01   3.20312e-01   6.42093e-02
+cycle=54 time=2.622884e-01 next dt=4.855050e-03 last dt=4.855273e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88656e-01   3.20312e-01   6.42101e-02
+cycle=55 time=2.671434e-01 next dt=4.854819e-03 last dt=4.855050e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88656e-01   3.20312e-01   6.42110e-02
+cycle=56 time=2.719982e-01 next dt=4.854571e-03 last dt=4.854819e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88657e-01   3.20312e-01   6.42119e-02
+cycle=57 time=2.768528e-01 next dt=4.854311e-03 last dt=4.854571e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88657e-01   3.20312e-01   6.42128e-02
+cycle=58 time=2.817071e-01 next dt=4.854048e-03 last dt=4.854311e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88657e-01   3.20312e-01   6.42137e-02
+cycle=59 time=2.865612e-01 next dt=4.853782e-03 last dt=4.854048e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88658e-01   3.20312e-01   6.42147e-02
+cycle=60 time=2.914149e-01 next dt=4.853514e-03 last dt=4.853782e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88658e-01   3.20312e-01   6.42157e-02
+cycle=61 time=2.962685e-01 next dt=4.853242e-03 last dt=4.853514e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88658e-01   3.20312e-01   6.42167e-02
+cycle=62 time=3.011217e-01 next dt=4.852966e-03 last dt=4.853242e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88658e-01   3.20312e-01   6.42177e-02
+cycle=63 time=3.059747e-01 next dt=4.852687e-03 last dt=4.852966e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88659e-01   3.20312e-01   6.42188e-02
+cycle=64 time=3.108273e-01 next dt=4.852406e-03 last dt=4.852687e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88659e-01   3.20312e-01   6.42199e-02
+cycle=65 time=3.156798e-01 next dt=4.852123e-03 last dt=4.852406e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88659e-01   3.20312e-01   6.42210e-02
+cycle=66 time=3.205319e-01 next dt=4.851842e-03 last dt=4.852123e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88660e-01   3.20312e-01   6.42222e-02
+cycle=67 time=3.253837e-01 next dt=4.851559e-03 last dt=4.851842e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88660e-01   3.20312e-01   6.42233e-02
+cycle=68 time=3.302353e-01 next dt=4.851276e-03 last dt=4.851559e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88660e-01   3.20312e-01   6.42246e-02
+cycle=69 time=3.350866e-01 next dt=4.850995e-03 last dt=4.851276e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88661e-01   3.20312e-01   6.42258e-02
+cycle=70 time=3.399375e-01 next dt=4.850718e-03 last dt=4.850995e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88661e-01   3.20312e-01   6.42272e-02
+cycle=71 time=3.447883e-01 next dt=4.850444e-03 last dt=4.850718e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88661e-01   3.20312e-01   6.42285e-02
+cycle=72 time=3.496387e-01 next dt=4.850174e-03 last dt=4.850444e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88662e-01   3.20312e-01   6.42299e-02
+cycle=73 time=3.544889e-01 next dt=4.849909e-03 last dt=4.850174e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88662e-01   3.20312e-01   6.42313e-02
+cycle=74 time=3.593388e-01 next dt=4.849651e-03 last dt=4.849909e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88662e-01   3.20312e-01   6.42328e-02
+cycle=75 time=3.641884e-01 next dt=4.849399e-03 last dt=4.849651e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88663e-01   3.20312e-01   6.42343e-02
+cycle=76 time=3.690378e-01 next dt=4.849155e-03 last dt=4.849399e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88663e-01   3.20312e-01   6.42358e-02
+cycle=77 time=3.738870e-01 next dt=4.848917e-03 last dt=4.849155e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88663e-01   3.20312e-01   6.42374e-02
+cycle=78 time=3.787359e-01 next dt=4.848683e-03 last dt=4.848917e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88664e-01   3.20312e-01   6.42390e-02
+cycle=79 time=3.835846e-01 next dt=4.848448e-03 last dt=4.848683e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88664e-01   3.20312e-01   6.42408e-02
+cycle=80 time=3.884330e-01 next dt=4.848196e-03 last dt=4.848448e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88665e-01   3.20312e-01   6.42425e-02
+cycle=81 time=3.932812e-01 next dt=4.847949e-03 last dt=4.848196e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88665e-01   3.20312e-01   6.42443e-02
+cycle=82 time=3.981292e-01 next dt=4.847704e-03 last dt=4.847949e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88665e-01   3.20312e-01   6.42462e-02
+cycle=83 time=4.029769e-01 next dt=4.847464e-03 last dt=4.847704e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88666e-01   3.20312e-01   6.42482e-02
+cycle=84 time=4.078244e-01 next dt=4.847225e-03 last dt=4.847464e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88666e-01   3.20312e-01   6.42502e-02
+cycle=85 time=4.126716e-01 next dt=4.846986e-03 last dt=4.847225e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88667e-01   3.20312e-01   6.42523e-02
+cycle=86 time=4.175186e-01 next dt=4.846744e-03 last dt=4.846986e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88667e-01   3.20312e-01   6.42545e-02
+cycle=87 time=4.223653e-01 next dt=4.846497e-03 last dt=4.846744e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88667e-01   3.20312e-01   6.42567e-02
+cycle=88 time=4.272118e-01 next dt=4.846243e-03 last dt=4.846497e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88668e-01   3.20312e-01   6.42590e-02
+cycle=89 time=4.320581e-01 next dt=4.845983e-03 last dt=4.846243e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88668e-01   3.20312e-01   6.42614e-02
+cycle=90 time=4.369040e-01 next dt=4.845714e-03 last dt=4.845983e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88669e-01   3.20312e-01   6.42639e-02
+cycle=91 time=4.417498e-01 next dt=4.845434e-03 last dt=4.845714e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88669e-01   3.20312e-01   6.42664e-02
+cycle=92 time=4.465952e-01 next dt=4.845142e-03 last dt=4.845434e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88670e-01   3.20312e-01   6.42690e-02
+cycle=93 time=4.514403e-01 next dt=4.844837e-03 last dt=4.845142e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88670e-01   3.20312e-01   6.42716e-02
+cycle=94 time=4.562852e-01 next dt=4.844521e-03 last dt=4.844837e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88671e-01   3.20312e-01   6.42743e-02
+cycle=95 time=4.611297e-01 next dt=4.844198e-03 last dt=4.844521e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88671e-01   3.20312e-01   6.42770e-02
+cycle=96 time=4.659739e-01 next dt=4.843873e-03 last dt=4.844198e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88672e-01   3.20312e-01   6.42798e-02
+cycle=97 time=4.708178e-01 next dt=4.843552e-03 last dt=4.843873e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88672e-01   3.20312e-01   6.42827e-02
+cycle=98 time=4.756613e-01 next dt=4.843242e-03 last dt=4.843552e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88672e-01   3.20312e-01   6.42855e-02
+cycle=99 time=4.805045e-01 next dt=4.842955e-03 last dt=4.843242e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88673e-01   3.20312e-01   6.42884e-02
+cycle=100 time=4.853475e-01 next dt=4.842703e-03 last dt=4.842955e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88673e-01   3.20312e-01   6.42914e-02
+cycle=101 time=4.901902e-01 next dt=4.842493e-03 last dt=4.842703e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88674e-01   3.20312e-01   6.42944e-02
+cycle=102 time=4.950327e-01 next dt=4.842334e-03 last dt=4.842493e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88674e-01   3.20312e-01   6.42974e-02
+cycle=103 time=4.998750e-01 next dt=4.842224e-03 last dt=4.842334e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88675e-01   3.20312e-01   6.43006e-02
+cycle=104 time=5.047173e-01 next dt=4.842151e-03 last dt=4.842224e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88675e-01   3.20312e-01   6.43039e-02
+cycle=105 time=5.095594e-01 next dt=4.842110e-03 last dt=4.842151e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88676e-01   3.20312e-01   6.43074e-02
+cycle=106 time=5.144015e-01 next dt=4.842101e-03 last dt=4.842110e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88676e-01   3.20313e-01   6.43110e-02
+cycle=107 time=5.192436e-01 next dt=4.842114e-03 last dt=4.842101e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88677e-01   3.20313e-01   6.43150e-02
+cycle=108 time=5.240857e-01 next dt=4.842140e-03 last dt=4.842114e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88677e-01   3.20313e-01   6.43192e-02
+cycle=109 time=5.289279e-01 next dt=4.842174e-03 last dt=4.842140e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88678e-01   3.20313e-01   6.43238e-02
+cycle=110 time=5.337700e-01 next dt=4.842202e-03 last dt=4.842174e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88679e-01   3.20313e-01   6.43287e-02
+cycle=111 time=5.386123e-01 next dt=4.842218e-03 last dt=4.842202e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88679e-01   3.20313e-01   6.43340e-02
+cycle=112 time=5.434545e-01 next dt=4.842224e-03 last dt=4.842218e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88680e-01   3.20313e-01   6.43398e-02
+cycle=113 time=5.482967e-01 next dt=4.842233e-03 last dt=4.842224e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88681e-01   3.20313e-01   6.43461e-02
+cycle=114 time=5.531389e-01 next dt=4.842224e-03 last dt=4.842233e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88681e-01   3.20313e-01   6.43528e-02
+cycle=115 time=5.579811e-01 next dt=4.842199e-03 last dt=4.842224e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88682e-01   3.20313e-01   6.43599e-02
+cycle=116 time=5.628233e-01 next dt=4.842162e-03 last dt=4.842199e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88683e-01   3.20313e-01   6.43673e-02
+cycle=117 time=5.676655e-01 next dt=4.842124e-03 last dt=4.842162e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88684e-01   3.20313e-01   6.43752e-02
+cycle=118 time=5.725076e-01 next dt=4.842082e-03 last dt=4.842124e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88684e-01   3.20313e-01   6.43834e-02
+cycle=119 time=5.773497e-01 next dt=4.842036e-03 last dt=4.842082e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88685e-01   3.20313e-01   6.43920e-02
+cycle=120 time=5.821918e-01 next dt=4.841982e-03 last dt=4.842036e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88686e-01   3.20313e-01   6.44009e-02
+cycle=121 time=5.870337e-01 next dt=4.841913e-03 last dt=4.841982e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88687e-01   3.20313e-01   6.44101e-02
+cycle=122 time=5.918756e-01 next dt=4.841823e-03 last dt=4.841913e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88688e-01   3.20313e-01   6.44195e-02
+cycle=123 time=5.967175e-01 next dt=4.841704e-03 last dt=4.841823e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88689e-01   3.20313e-01   6.44292e-02
+cycle=124 time=6.015592e-01 next dt=4.841545e-03 last dt=4.841704e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88690e-01   3.20313e-01   6.44391e-02
+cycle=125 time=6.064007e-01 next dt=4.841324e-03 last dt=4.841545e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88690e-01   3.20312e-01   6.44491e-02
+cycle=126 time=6.112420e-01 next dt=4.841076e-03 last dt=4.841324e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88691e-01   3.20312e-01   6.44593e-02
+cycle=127 time=6.160831e-01 next dt=4.840800e-03 last dt=4.841076e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88692e-01   3.20312e-01   6.44697e-02
+cycle=128 time=6.209239e-01 next dt=4.840495e-03 last dt=4.840800e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88693e-01   3.20312e-01   6.44800e-02
+cycle=129 time=6.257644e-01 next dt=4.840161e-03 last dt=4.840495e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88694e-01   3.20312e-01   6.44904e-02
+cycle=130 time=6.306046e-01 next dt=4.839795e-03 last dt=4.840161e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88695e-01   3.20312e-01   6.45009e-02
+cycle=131 time=6.354444e-01 next dt=4.839400e-03 last dt=4.839795e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88696e-01   3.20312e-01   6.45113e-02
+cycle=132 time=6.402838e-01 next dt=4.838975e-03 last dt=4.839400e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88696e-01   3.20312e-01   6.45217e-02
+cycle=133 time=6.451227e-01 next dt=4.838522e-03 last dt=4.838975e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88697e-01   3.20312e-01   6.45320e-02
+cycle=134 time=6.499613e-01 next dt=4.838048e-03 last dt=4.838522e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88698e-01   3.20312e-01   6.45423e-02
+cycle=135 time=6.547993e-01 next dt=4.837553e-03 last dt=4.838048e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88699e-01   3.20312e-01   6.45525e-02
+cycle=136 time=6.596369e-01 next dt=4.837041e-03 last dt=4.837553e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88700e-01   3.20312e-01   6.45626e-02
+cycle=137 time=6.644739e-01 next dt=4.836510e-03 last dt=4.837041e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88701e-01   3.20311e-01   6.45727e-02
+cycle=138 time=6.693104e-01 next dt=4.835962e-03 last dt=4.836510e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88701e-01   3.20311e-01   6.45828e-02
+cycle=139 time=6.741464e-01 next dt=4.835398e-03 last dt=4.835962e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88702e-01   3.20311e-01   6.45927e-02
+cycle=140 time=6.789818e-01 next dt=4.834826e-03 last dt=4.835398e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88703e-01   3.20311e-01   6.46026e-02
+cycle=141 time=6.838166e-01 next dt=4.834258e-03 last dt=4.834826e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88704e-01   3.20311e-01   6.46125e-02
+cycle=142 time=6.886509e-01 next dt=4.833697e-03 last dt=4.834258e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88704e-01   3.20311e-01   6.46223e-02
+cycle=143 time=6.934846e-01 next dt=4.833144e-03 last dt=4.833697e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88705e-01   3.20311e-01   6.46322e-02
+cycle=144 time=6.983177e-01 next dt=4.832597e-03 last dt=4.833144e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88706e-01   3.20310e-01   6.46421e-02
+cycle=145 time=7.031503e-01 next dt=4.832053e-03 last dt=4.832597e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88707e-01   3.20310e-01   6.46522e-02
+cycle=146 time=7.079824e-01 next dt=4.831508e-03 last dt=4.832053e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88708e-01   3.20310e-01   6.46626e-02
+cycle=147 time=7.128139e-01 next dt=4.830931e-03 last dt=4.831508e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88708e-01   3.20310e-01   6.46733e-02
+cycle=148 time=7.176448e-01 next dt=4.830343e-03 last dt=4.830931e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88709e-01   3.20310e-01   6.46843e-02
+cycle=149 time=7.224751e-01 next dt=4.829753e-03 last dt=4.830343e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88710e-01   3.20309e-01   6.46957e-02
+cycle=150 time=7.273049e-01 next dt=4.829166e-03 last dt=4.829753e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88711e-01   3.20309e-01   6.47075e-02
+cycle=151 time=7.321341e-01 next dt=4.828587e-03 last dt=4.829166e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88712e-01   3.20309e-01   6.47197e-02
+cycle=152 time=7.369626e-01 next dt=4.828018e-03 last dt=4.828587e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88712e-01   3.20308e-01   6.47326e-02
+cycle=153 time=7.417907e-01 next dt=4.827456e-03 last dt=4.828018e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88713e-01   3.20308e-01   6.47461e-02
+cycle=154 time=7.466181e-01 next dt=4.826894e-03 last dt=4.827456e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88714e-01   3.20307e-01   6.47602e-02
+cycle=155 time=7.514450e-01 next dt=4.826326e-03 last dt=4.826894e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88715e-01   3.20307e-01   6.47752e-02
+cycle=156 time=7.562713e-01 next dt=4.825750e-03 last dt=4.826326e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88716e-01   3.20307e-01   6.47911e-02
+cycle=157 time=7.610971e-01 next dt=4.825167e-03 last dt=4.825750e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88717e-01   3.20306e-01   6.48080e-02
+cycle=158 time=7.659223e-01 next dt=4.824576e-03 last dt=4.825167e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88718e-01   3.20306e-01   6.48260e-02
+cycle=159 time=7.707468e-01 next dt=4.823977e-03 last dt=4.824576e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88719e-01   3.20306e-01   6.48453e-02
+cycle=160 time=7.755708e-01 next dt=4.823366e-03 last dt=4.823977e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88721e-01   3.20306e-01   6.48657e-02
+cycle=161 time=7.803942e-01 next dt=4.822740e-03 last dt=4.823366e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88722e-01   3.20306e-01   6.48875e-02
+cycle=162 time=7.852169e-01 next dt=4.822093e-03 last dt=4.822740e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88723e-01   3.20306e-01   6.49105e-02
+cycle=163 time=7.900390e-01 next dt=4.821417e-03 last dt=4.822093e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88724e-01   3.20306e-01   6.49349e-02
+cycle=164 time=7.948604e-01 next dt=4.820705e-03 last dt=4.821417e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88726e-01   3.20306e-01   6.49605e-02
+cycle=165 time=7.996811e-01 next dt=4.819958e-03 last dt=4.820705e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88727e-01   3.20306e-01   6.49874e-02
+cycle=166 time=8.045011e-01 next dt=4.819184e-03 last dt=4.819958e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88729e-01   3.20306e-01   6.50155e-02
+cycle=167 time=8.093203e-01 next dt=4.818382e-03 last dt=4.819184e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88730e-01   3.20306e-01   6.50446e-02
+cycle=168 time=8.141387e-01 next dt=4.817558e-03 last dt=4.818382e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88732e-01   3.20306e-01   6.50747e-02
+cycle=169 time=8.189562e-01 next dt=4.816724e-03 last dt=4.817558e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88733e-01   3.20306e-01   6.51058e-02
+cycle=170 time=8.237729e-01 next dt=4.815885e-03 last dt=4.816724e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88735e-01   3.20306e-01   6.51376e-02
+cycle=171 time=8.285888e-01 next dt=4.815018e-03 last dt=4.815885e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88736e-01   3.20306e-01   6.51701e-02
+cycle=172 time=8.334038e-01 next dt=4.814145e-03 last dt=4.815018e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88738e-01   3.20306e-01   6.52032e-02
+cycle=173 time=8.382180e-01 next dt=4.813289e-03 last dt=4.814145e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88739e-01   3.20307e-01   6.52369e-02
+cycle=174 time=8.430313e-01 next dt=4.812457e-03 last dt=4.813289e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88741e-01   3.20307e-01   6.52709e-02
+cycle=175 time=8.478437e-01 next dt=4.811647e-03 last dt=4.812457e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88742e-01   3.20307e-01   6.53054e-02
+cycle=176 time=8.526554e-01 next dt=4.810853e-03 last dt=4.811647e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88744e-01   3.20307e-01   6.53402e-02
+cycle=177 time=8.574662e-01 next dt=4.810080e-03 last dt=4.810853e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88745e-01   3.20307e-01   6.53753e-02
+cycle=178 time=8.622763e-01 next dt=4.809343e-03 last dt=4.810080e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88747e-01   3.20307e-01   6.54108e-02
+cycle=179 time=8.670857e-01 next dt=4.808650e-03 last dt=4.809343e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88748e-01   3.20307e-01   6.54464e-02
+cycle=180 time=8.718943e-01 next dt=4.807994e-03 last dt=4.808650e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88750e-01   3.20307e-01   6.54823e-02
+cycle=181 time=8.767023e-01 next dt=4.807356e-03 last dt=4.807994e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88752e-01   3.20307e-01   6.55185e-02
+cycle=182 time=8.815096e-01 next dt=4.806718e-03 last dt=4.807356e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88753e-01   3.20307e-01   6.55550e-02
+cycle=183 time=8.863164e-01 next dt=4.806066e-03 last dt=4.806718e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88755e-01   3.20307e-01   6.55919e-02
+cycle=184 time=8.911224e-01 next dt=4.805394e-03 last dt=4.806066e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88756e-01   3.20307e-01   6.56292e-02
+cycle=185 time=8.959278e-01 next dt=4.804703e-03 last dt=4.805394e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88758e-01   3.20307e-01   6.56668e-02
+cycle=186 time=9.007325e-01 next dt=4.804000e-03 last dt=4.804703e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88760e-01   3.20306e-01   6.57048e-02
+cycle=187 time=9.055365e-01 next dt=4.803287e-03 last dt=4.804000e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88761e-01   3.20306e-01   6.57433e-02
+cycle=188 time=9.103398e-01 next dt=4.802566e-03 last dt=4.803287e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88763e-01   3.20306e-01   6.57823e-02
+cycle=189 time=9.151424e-01 next dt=4.801838e-03 last dt=4.802566e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88765e-01   3.20306e-01   6.58219e-02
+cycle=190 time=9.199442e-01 next dt=4.801099e-03 last dt=4.801838e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88766e-01   3.20305e-01   6.58620e-02
+cycle=191 time=9.247453e-01 next dt=4.800349e-03 last dt=4.801099e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88768e-01   3.20305e-01   6.59027e-02
+cycle=192 time=9.295457e-01 next dt=4.799524e-03 last dt=4.800349e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88770e-01   3.20305e-01   6.59441e-02
+cycle=193 time=9.343452e-01 next dt=4.798645e-03 last dt=4.799524e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88771e-01   3.20304e-01   6.59860e-02
+cycle=194 time=9.391438e-01 next dt=4.797752e-03 last dt=4.798645e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88773e-01   3.20304e-01   6.60287e-02
+cycle=195 time=9.439416e-01 next dt=4.796843e-03 last dt=4.797752e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88775e-01   3.20303e-01   6.60721e-02
+cycle=196 time=9.487384e-01 next dt=4.795912e-03 last dt=4.796843e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88777e-01   3.20303e-01   6.61163e-02
+cycle=197 time=9.535343e-01 next dt=4.794952e-03 last dt=4.795912e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88779e-01   3.20303e-01   6.61613e-02
+cycle=198 time=9.583293e-01 next dt=4.793970e-03 last dt=4.794952e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88780e-01   3.20302e-01   6.62071e-02
+cycle=199 time=9.631233e-01 next dt=4.792966e-03 last dt=4.793970e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88782e-01   3.20302e-01   6.62539e-02
+cycle=200 time=9.679162e-01 next dt=4.791940e-03 last dt=4.792966e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88784e-01   3.20301e-01   6.63016e-02
+cycle=201 time=9.727082e-01 next dt=4.790897e-03 last dt=4.791940e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88786e-01   3.20300e-01   6.63503e-02
+cycle=202 time=9.774991e-01 next dt=4.789832e-03 last dt=4.790897e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88788e-01   3.20300e-01   6.64000e-02
+cycle=203 time=9.822889e-01 next dt=4.788745e-03 last dt=4.789832e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88790e-01   3.20299e-01   6.64507e-02
+cycle=204 time=9.870776e-01 next dt=4.787643e-03 last dt=4.788745e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88792e-01   3.20299e-01   6.65025e-02
+cycle=205 time=9.918653e-01 next dt=4.786529e-03 last dt=4.787643e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88794e-01   3.20298e-01   6.65553e-02
+cycle=206 time=9.966518e-01 next dt=4.785412e-03 last dt=4.786529e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88796e-01   3.20298e-01   6.66093e-02
+cycle=207 time=1.001437e+00 next dt=4.784254e-03 last dt=4.785412e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88798e-01   3.20297e-01   6.66644e-02
+cycle=208 time=1.006221e+00 next dt=4.782970e-03 last dt=4.784254e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88800e-01   3.20297e-01   6.67205e-02
+cycle=209 time=1.011004e+00 next dt=4.781673e-03 last dt=4.782970e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88803e-01   3.20296e-01   6.67778e-02
+cycle=210 time=1.015786e+00 next dt=4.780366e-03 last dt=4.781673e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88805e-01   3.20296e-01   6.68363e-02
+cycle=211 time=1.020566e+00 next dt=4.779051e-03 last dt=4.780366e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88807e-01   3.20295e-01   6.68960e-02
+cycle=212 time=1.025346e+00 next dt=4.777721e-03 last dt=4.779051e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88809e-01   3.20295e-01   6.69571e-02
+cycle=213 time=1.030123e+00 next dt=4.776378e-03 last dt=4.777721e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88812e-01   3.20294e-01   6.70194e-02
+cycle=214 time=1.034900e+00 next dt=4.775027e-03 last dt=4.776378e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88814e-01   3.20294e-01   6.70831e-02
+cycle=215 time=1.039675e+00 next dt=4.773666e-03 last dt=4.775027e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88816e-01   3.20293e-01   6.71483e-02
+cycle=216 time=1.044448e+00 next dt=4.772288e-03 last dt=4.773666e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88819e-01   3.20293e-01   6.72148e-02
+cycle=217 time=1.049221e+00 next dt=4.770888e-03 last dt=4.772288e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88821e-01   3.20293e-01   6.72828e-02
+cycle=218 time=1.053992e+00 next dt=4.769465e-03 last dt=4.770888e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88824e-01   3.20292e-01   6.73523e-02
+cycle=219 time=1.058761e+00 next dt=4.768018e-03 last dt=4.769465e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88826e-01   3.20292e-01   6.74233e-02
+cycle=220 time=1.063529e+00 next dt=4.766551e-03 last dt=4.768018e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88829e-01   3.20291e-01   6.74960e-02
+cycle=221 time=1.068296e+00 next dt=4.765068e-03 last dt=4.766551e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88832e-01   3.20291e-01   6.75702e-02
+cycle=222 time=1.073061e+00 next dt=4.763567e-03 last dt=4.765068e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88834e-01   3.20290e-01   6.76461e-02
+cycle=223 time=1.077824e+00 next dt=4.762048e-03 last dt=4.763567e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88837e-01   3.20290e-01   6.77236e-02
+cycle=224 time=1.082586e+00 next dt=4.760511e-03 last dt=4.762048e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88840e-01   3.20290e-01   6.78028e-02
+cycle=225 time=1.087347e+00 next dt=4.758966e-03 last dt=4.760511e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88843e-01   3.20289e-01   6.78835e-02
+cycle=226 time=1.092106e+00 next dt=4.757343e-03 last dt=4.758966e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88846e-01   3.20289e-01   6.79657e-02
+cycle=227 time=1.096863e+00 next dt=4.755638e-03 last dt=4.757343e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88849e-01   3.20289e-01   6.80496e-02
+cycle=228 time=1.101619e+00 next dt=4.753916e-03 last dt=4.755638e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88852e-01   3.20288e-01   6.81350e-02
+cycle=229 time=1.106373e+00 next dt=4.752172e-03 last dt=4.753916e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88855e-01   3.20288e-01   6.82220e-02
+cycle=230 time=1.111125e+00 next dt=4.750404e-03 last dt=4.752172e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88858e-01   3.20288e-01   6.83106e-02
+cycle=231 time=1.115875e+00 next dt=4.748611e-03 last dt=4.750404e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88861e-01   3.20288e-01   6.84009e-02
+cycle=232 time=1.120624e+00 next dt=4.746783e-03 last dt=4.748611e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88865e-01   3.20287e-01   6.84929e-02
+cycle=233 time=1.125371e+00 next dt=4.744932e-03 last dt=4.746783e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88868e-01   3.20287e-01   6.85865e-02
+cycle=234 time=1.130116e+00 next dt=4.743063e-03 last dt=4.744932e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88871e-01   3.20287e-01   6.86819e-02
+cycle=235 time=1.134859e+00 next dt=4.741180e-03 last dt=4.743063e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88875e-01   3.20286e-01   6.87791e-02
+cycle=236 time=1.139600e+00 next dt=4.739284e-03 last dt=4.741180e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88878e-01   3.20286e-01   6.88780e-02
+cycle=237 time=1.144339e+00 next dt=4.737377e-03 last dt=4.739284e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88882e-01   3.20285e-01   6.89788e-02
+cycle=238 time=1.149076e+00 next dt=4.735462e-03 last dt=4.737377e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88886e-01   3.20285e-01   6.90814e-02
+cycle=239 time=1.153812e+00 next dt=4.733537e-03 last dt=4.735462e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88889e-01   3.20284e-01   6.91858e-02
+cycle=240 time=1.158545e+00 next dt=4.731602e-03 last dt=4.733537e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88893e-01   3.20283e-01   6.92922e-02
+cycle=241 time=1.163277e+00 next dt=4.729655e-03 last dt=4.731602e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88897e-01   3.20282e-01   6.94006e-02
+cycle=242 time=1.168007e+00 next dt=4.727701e-03 last dt=4.729655e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88901e-01   3.20281e-01   6.95111e-02
+cycle=243 time=1.172734e+00 next dt=4.725740e-03 last dt=4.727701e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88905e-01   3.20280e-01   6.96237e-02
+cycle=244 time=1.177460e+00 next dt=4.723769e-03 last dt=4.725740e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88910e-01   3.20279e-01   6.97384e-02
+cycle=245 time=1.182184e+00 next dt=4.721787e-03 last dt=4.723769e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88914e-01   3.20277e-01   6.98552e-02
+cycle=246 time=1.186906e+00 next dt=4.719798e-03 last dt=4.721787e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88918e-01   3.20276e-01   6.99742e-02
+cycle=247 time=1.191625e+00 next dt=4.717806e-03 last dt=4.719798e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88923e-01   3.20275e-01   7.00956e-02
+cycle=248 time=1.196343e+00 next dt=4.715816e-03 last dt=4.717806e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88928e-01   3.20273e-01   7.02193e-02
+cycle=249 time=1.201059e+00 next dt=4.713830e-03 last dt=4.715816e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88933e-01   3.20272e-01   7.03452e-02
+cycle=250 time=1.205773e+00 next dt=4.711847e-03 last dt=4.713830e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88937e-01   3.20271e-01   7.04737e-02
+cycle=251 time=1.210485e+00 next dt=4.709781e-03 last dt=4.711847e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88943e-01   3.20269e-01   7.06045e-02
+cycle=252 time=1.215195e+00 next dt=4.707539e-03 last dt=4.709781e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88948e-01   3.20268e-01   7.07379e-02
+cycle=253 time=1.219902e+00 next dt=4.705263e-03 last dt=4.707539e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88953e-01   3.20266e-01   7.08737e-02
+cycle=254 time=1.224607e+00 next dt=4.702957e-03 last dt=4.705263e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88959e-01   3.20265e-01   7.10121e-02
+cycle=255 time=1.229310e+00 next dt=4.700616e-03 last dt=4.702957e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88964e-01   3.20263e-01   7.11529e-02
+cycle=256 time=1.234011e+00 next dt=4.698220e-03 last dt=4.700616e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88970e-01   3.20261e-01   7.12963e-02
+cycle=257 time=1.238709e+00 next dt=4.695754e-03 last dt=4.698220e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88976e-01   3.20260e-01   7.14421e-02
+cycle=258 time=1.243405e+00 next dt=4.693236e-03 last dt=4.695754e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88982e-01   3.20258e-01   7.15905e-02
+cycle=259 time=1.248098e+00 next dt=4.690679e-03 last dt=4.693236e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88988e-01   3.20256e-01   7.17414e-02
+cycle=260 time=1.252789e+00 next dt=4.688089e-03 last dt=4.690679e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.88994e-01   3.20254e-01   7.18948e-02
+cycle=261 time=1.257477e+00 next dt=4.685462e-03 last dt=4.688089e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89001e-01   3.20252e-01   7.20508e-02
+cycle=262 time=1.262162e+00 next dt=4.682791e-03 last dt=4.685462e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89008e-01   3.20250e-01   7.22092e-02
+cycle=263 time=1.266845e+00 next dt=4.680099e-03 last dt=4.682791e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89015e-01   3.20248e-01   7.23699e-02
+cycle=264 time=1.271525e+00 next dt=4.677387e-03 last dt=4.680099e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89022e-01   3.20246e-01   7.25331e-02
+cycle=265 time=1.276203e+00 next dt=4.674643e-03 last dt=4.677387e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89029e-01   3.20244e-01   7.26987e-02
+cycle=266 time=1.280877e+00 next dt=4.671848e-03 last dt=4.674643e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89036e-01   3.20242e-01   7.28668e-02
+cycle=267 time=1.285549e+00 next dt=4.669011e-03 last dt=4.671848e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89044e-01   3.20240e-01   7.30373e-02
+cycle=268 time=1.290218e+00 next dt=4.666159e-03 last dt=4.669011e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89051e-01   3.20237e-01   7.32106e-02
+cycle=269 time=1.294884e+00 next dt=4.663327e-03 last dt=4.666159e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89059e-01   3.20235e-01   7.33865e-02
+cycle=270 time=1.299548e+00 next dt=4.660537e-03 last dt=4.663327e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89067e-01   3.20233e-01   7.35655e-02
+cycle=271 time=1.304208e+00 next dt=4.657789e-03 last dt=4.660537e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89076e-01   3.20231e-01   7.37477e-02
+cycle=272 time=1.308866e+00 next dt=4.655083e-03 last dt=4.657789e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89084e-01   3.20229e-01   7.39334e-02
+cycle=273 time=1.313521e+00 next dt=4.652404e-03 last dt=4.655083e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89093e-01   3.20226e-01   7.41227e-02
+cycle=274 time=1.318173e+00 next dt=4.649745e-03 last dt=4.652404e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89102e-01   3.20224e-01   7.43161e-02
+cycle=275 time=1.322823e+00 next dt=4.647110e-03 last dt=4.649745e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89111e-01   3.20221e-01   7.45140e-02
+cycle=276 time=1.327470e+00 next dt=4.644487e-03 last dt=4.647110e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89121e-01   3.20219e-01   7.47166e-02
+cycle=277 time=1.332115e+00 next dt=4.641833e-03 last dt=4.644487e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89130e-01   3.20216e-01   7.49244e-02
+cycle=278 time=1.336757e+00 next dt=4.638879e-03 last dt=4.641833e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89140e-01   3.20213e-01   7.51376e-02
+cycle=279 time=1.341395e+00 next dt=4.635896e-03 last dt=4.638879e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89151e-01   3.20211e-01   7.53564e-02
+cycle=280 time=1.346031e+00 next dt=4.632871e-03 last dt=4.635896e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89161e-01   3.20208e-01   7.55811e-02
+cycle=281 time=1.350664e+00 next dt=4.629795e-03 last dt=4.632871e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89172e-01   3.20205e-01   7.61153e-02
+cycle=282 time=1.355294e+00 next dt=4.626655e-03 last dt=4.629795e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89184e-01   3.20201e-01   7.66546e-02
+cycle=283 time=1.359921e+00 next dt=4.623462e-03 last dt=4.626655e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89195e-01   3.20198e-01   7.71930e-02
+cycle=284 time=1.364544e+00 next dt=4.620240e-03 last dt=4.623462e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89207e-01   3.20195e-01   7.77294e-02
+cycle=285 time=1.369164e+00 next dt=4.616998e-03 last dt=4.620240e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89219e-01   3.20191e-01   7.82632e-02
+cycle=286 time=1.373781e+00 next dt=4.613734e-03 last dt=4.616998e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89232e-01   3.20187e-01   7.87937e-02
+cycle=287 time=1.378395e+00 next dt=4.610436e-03 last dt=4.613734e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89245e-01   3.20183e-01   7.93199e-02
+cycle=288 time=1.383006e+00 next dt=4.607087e-03 last dt=4.610436e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89258e-01   3.20179e-01   7.98414e-02
+cycle=289 time=1.387613e+00 next dt=4.603673e-03 last dt=4.607087e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89272e-01   3.20175e-01   8.03575e-02
+cycle=290 time=1.392216e+00 next dt=4.600219e-03 last dt=4.603673e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89286e-01   3.20171e-01   8.08677e-02
+cycle=291 time=1.396817e+00 next dt=4.596739e-03 last dt=4.600219e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89300e-01   3.20166e-01   8.13719e-02
+cycle=292 time=1.401413e+00 next dt=4.593256e-03 last dt=4.596739e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89315e-01   3.20161e-01   8.18698e-02
+cycle=293 time=1.406007e+00 next dt=4.589779e-03 last dt=4.593256e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89330e-01   3.20156e-01   8.23610e-02
+cycle=294 time=1.410596e+00 next dt=4.586310e-03 last dt=4.589779e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89346e-01   3.20152e-01   8.28455e-02
+cycle=295 time=1.415183e+00 next dt=4.582853e-03 last dt=4.586310e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89362e-01   3.20146e-01   8.33237e-02
+cycle=296 time=1.419765e+00 next dt=4.579389e-03 last dt=4.582853e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89379e-01   3.20141e-01   8.37958e-02
+cycle=297 time=1.424345e+00 next dt=4.575916e-03 last dt=4.579389e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89396e-01   3.20136e-01   8.42617e-02
+cycle=298 time=1.428921e+00 next dt=4.572441e-03 last dt=4.575916e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89413e-01   3.20130e-01   8.47217e-02
+cycle=299 time=1.433493e+00 next dt=4.568959e-03 last dt=4.572441e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89431e-01   3.20125e-01   8.51760e-02
+cycle=300 time=1.438062e+00 next dt=4.565463e-03 last dt=4.568959e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89449e-01   3.20119e-01   8.56247e-02
+cycle=301 time=1.442628e+00 next dt=4.561962e-03 last dt=4.565463e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89468e-01   3.20114e-01   8.60684e-02
+cycle=302 time=1.447190e+00 next dt=4.558459e-03 last dt=4.561962e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89488e-01   3.20108e-01   8.65077e-02
+cycle=303 time=1.451748e+00 next dt=4.554956e-03 last dt=4.558459e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89507e-01   3.20102e-01   8.69428e-02
+cycle=304 time=1.456303e+00 next dt=4.551458e-03 last dt=4.554956e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89528e-01   3.20096e-01   8.73745e-02
+cycle=305 time=1.460854e+00 next dt=4.547977e-03 last dt=4.551458e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89549e-01   3.20090e-01   8.78034e-02
+cycle=306 time=1.465402e+00 next dt=4.544524e-03 last dt=4.547977e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89570e-01   3.20084e-01   8.82301e-02
+cycle=307 time=1.469947e+00 next dt=4.541110e-03 last dt=4.544524e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89592e-01   3.20078e-01   8.86554e-02
+cycle=308 time=1.474488e+00 next dt=4.537759e-03 last dt=4.541110e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89615e-01   3.20071e-01   8.92317e-02
+cycle=309 time=1.479026e+00 next dt=4.534481e-03 last dt=4.537759e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89638e-01   3.20065e-01   8.98621e-02
+cycle=310 time=1.483560e+00 next dt=4.531271e-03 last dt=4.534481e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89662e-01   3.20058e-01   9.04890e-02
+cycle=311 time=1.488092e+00 next dt=4.528113e-03 last dt=4.531271e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89686e-01   3.20051e-01   9.11133e-02
+cycle=312 time=1.492620e+00 next dt=4.525002e-03 last dt=4.528113e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89711e-01   3.20043e-01   9.17359e-02
+cycle=313 time=1.497145e+00 next dt=4.521921e-03 last dt=4.525002e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89737e-01   3.20036e-01   9.23578e-02
+cycle=314 time=1.501667e+00 next dt=4.518865e-03 last dt=4.521921e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89763e-01   3.20027e-01   9.29802e-02
+cycle=315 time=1.506186e+00 next dt=4.515852e-03 last dt=4.518865e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89790e-01   3.20019e-01   9.36037e-02
+cycle=316 time=1.510701e+00 next dt=4.512902e-03 last dt=4.515852e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89817e-01   3.20010e-01   9.42293e-02
+cycle=317 time=1.515214e+00 next dt=4.510042e-03 last dt=4.512902e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89846e-01   3.20000e-01   9.48581e-02
+cycle=318 time=1.519724e+00 next dt=4.507248e-03 last dt=4.510042e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89874e-01   3.19990e-01   9.54909e-02
+cycle=319 time=1.524232e+00 next dt=4.504562e-03 last dt=4.507248e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89904e-01   3.19979e-01   9.61281e-02
+cycle=320 time=1.528736e+00 next dt=4.502009e-03 last dt=4.504562e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89934e-01   3.19968e-01   9.67697e-02
+cycle=321 time=1.533238e+00 next dt=4.499582e-03 last dt=4.502009e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89965e-01   3.19957e-01   9.74158e-02
+cycle=322 time=1.537738e+00 next dt=4.497260e-03 last dt=4.499582e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.89997e-01   3.19945e-01   9.80656e-02
+cycle=323 time=1.542235e+00 next dt=4.495003e-03 last dt=4.497260e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90029e-01   3.19932e-01   9.92188e-02
+cycle=324 time=1.546730e+00 next dt=4.492813e-03 last dt=4.495003e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90063e-01   3.19920e-01   1.00331e-01
+cycle=325 time=1.551223e+00 next dt=4.489954e-03 last dt=4.492813e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90097e-01   3.19907e-01   1.01400e-01
+cycle=326 time=1.555713e+00 next dt=4.486219e-03 last dt=4.489954e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90132e-01   3.19893e-01   1.02429e-01
+cycle=327 time=1.560199e+00 next dt=4.482570e-03 last dt=4.486219e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90168e-01   3.19880e-01   1.03420e-01
+cycle=328 time=1.564682e+00 next dt=4.478968e-03 last dt=4.482570e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90204e-01   3.19866e-01   1.04379e-01
+cycle=329 time=1.569161e+00 next dt=4.475359e-03 last dt=4.478968e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90242e-01   3.19852e-01   1.05308e-01
+cycle=330 time=1.573636e+00 next dt=4.471715e-03 last dt=4.475359e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90280e-01   3.19837e-01   1.06209e-01
+cycle=331 time=1.578108e+00 next dt=4.468041e-03 last dt=4.471715e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90320e-01   3.19823e-01   1.07085e-01
+cycle=332 time=1.582576e+00 next dt=4.464358e-03 last dt=4.468041e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90360e-01   3.19809e-01   1.07941e-01
+cycle=333 time=1.587040e+00 next dt=4.460664e-03 last dt=4.464358e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90401e-01   3.19794e-01   1.08778e-01
+cycle=334 time=1.591501e+00 next dt=4.456955e-03 last dt=4.460664e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90444e-01   3.19780e-01   1.09601e-01
+cycle=335 time=1.595958e+00 next dt=4.453219e-03 last dt=4.456955e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90487e-01   3.19765e-01   1.10410e-01
+cycle=336 time=1.600411e+00 next dt=4.449467e-03 last dt=4.453219e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90531e-01   3.19750e-01   1.11207e-01
+cycle=337 time=1.604860e+00 next dt=4.445771e-03 last dt=4.449467e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90577e-01   3.19736e-01   1.11997e-01
+cycle=338 time=1.609306e+00 next dt=4.442209e-03 last dt=4.445771e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90623e-01   3.19721e-01   1.12780e-01
+cycle=339 time=1.613748e+00 next dt=4.438816e-03 last dt=4.442209e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90671e-01   3.19706e-01   1.13559e-01
+cycle=340 time=1.618187e+00 next dt=4.435559e-03 last dt=4.438816e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90719e-01   3.19691e-01   1.14337e-01
+cycle=341 time=1.622623e+00 next dt=4.432413e-03 last dt=4.435559e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90769e-01   3.19676e-01   1.15116e-01
+cycle=342 time=1.627055e+00 next dt=4.429419e-03 last dt=4.432413e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90819e-01   3.19660e-01   1.15898e-01
+cycle=343 time=1.631484e+00 next dt=4.426601e-03 last dt=4.429419e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90871e-01   3.19645e-01   1.16685e-01
+cycle=344 time=1.635911e+00 next dt=4.423915e-03 last dt=4.426601e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90924e-01   3.19629e-01   1.17477e-01
+cycle=345 time=1.640335e+00 next dt=4.421303e-03 last dt=4.423915e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.90978e-01   3.19613e-01   1.18276e-01
+cycle=346 time=1.644756e+00 next dt=4.418724e-03 last dt=4.421303e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91033e-01   3.19596e-01   1.19083e-01
+cycle=347 time=1.649175e+00 next dt=4.416248e-03 last dt=4.418724e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91090e-01   3.19580e-01   1.20088e-01
+cycle=348 time=1.653591e+00 next dt=4.413944e-03 last dt=4.416248e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91148e-01   3.19562e-01   1.21478e-01
+cycle=349 time=1.658005e+00 next dt=4.411850e-03 last dt=4.413944e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91207e-01   3.19545e-01   1.22787e-01
+cycle=350 time=1.662417e+00 next dt=4.409980e-03 last dt=4.411850e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91267e-01   3.19527e-01   1.24026e-01
+cycle=351 time=1.666827e+00 next dt=4.408363e-03 last dt=4.409980e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91328e-01   3.19509e-01   1.25208e-01
+cycle=352 time=1.671235e+00 next dt=4.407047e-03 last dt=4.408363e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91391e-01   3.19490e-01   1.26341e-01
+cycle=353 time=1.675642e+00 next dt=4.406094e-03 last dt=4.407047e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91455e-01   3.19470e-01   1.27436e-01
+cycle=354 time=1.680049e+00 next dt=4.405486e-03 last dt=4.406094e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91521e-01   3.19450e-01   1.28501e-01
+cycle=355 time=1.684454e+00 next dt=4.405189e-03 last dt=4.405486e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91588e-01   3.19429e-01   1.29543e-01
+cycle=356 time=1.688859e+00 next dt=4.401655e-03 last dt=4.405189e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91656e-01   3.19408e-01   1.30568e-01
+cycle=357 time=1.693261e+00 next dt=4.398097e-03 last dt=4.401655e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91726e-01   3.19386e-01   1.31583e-01
+cycle=358 time=1.697659e+00 next dt=4.394551e-03 last dt=4.398097e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91797e-01   3.19364e-01   1.32593e-01
+cycle=359 time=1.702054e+00 next dt=4.391068e-03 last dt=4.394551e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91869e-01   3.19341e-01   1.33605e-01
+cycle=360 time=1.706445e+00 next dt=4.387727e-03 last dt=4.391068e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.91943e-01   3.19317e-01   1.34624e-01
+cycle=361 time=1.710832e+00 next dt=4.384590e-03 last dt=4.387727e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92019e-01   3.19293e-01   1.35651e-01
+cycle=362 time=1.715217e+00 next dt=4.381777e-03 last dt=4.384590e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92096e-01   3.19268e-01   1.36690e-01
+cycle=363 time=1.719599e+00 next dt=4.379230e-03 last dt=4.381777e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92174e-01   3.19242e-01   1.37740e-01
+cycle=364 time=1.723978e+00 next dt=4.376897e-03 last dt=4.379230e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92254e-01   3.19216e-01   1.38802e-01
+cycle=365 time=1.728355e+00 next dt=4.374726e-03 last dt=4.376897e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92336e-01   3.19190e-01   1.40189e-01
+cycle=366 time=1.732730e+00 next dt=4.372717e-03 last dt=4.374726e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92419e-01   3.19162e-01   1.41814e-01
+cycle=367 time=1.737102e+00 next dt=4.370975e-03 last dt=4.372717e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92504e-01   3.19134e-01   1.43343e-01
+cycle=368 time=1.741473e+00 next dt=4.368611e-03 last dt=4.370975e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92590e-01   3.19106e-01   1.44797e-01
+cycle=369 time=1.745842e+00 next dt=4.363728e-03 last dt=4.368611e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92678e-01   3.19077e-01   1.46191e-01
+cycle=370 time=1.750206e+00 next dt=4.358834e-03 last dt=4.363728e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92768e-01   3.19047e-01   1.47734e-01
+cycle=371 time=1.754564e+00 next dt=4.354198e-03 last dt=4.358834e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92860e-01   3.19017e-01   1.49346e-01
+cycle=372 time=1.758919e+00 next dt=4.349914e-03 last dt=4.354198e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.92953e-01   3.18986e-01   1.50906e-01
+cycle=373 time=1.763269e+00 next dt=4.345886e-03 last dt=4.349914e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.93048e-01   3.18954e-01   1.52427e-01
+cycle=374 time=1.767614e+00 next dt=4.341946e-03 last dt=4.345886e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.93145e-01   3.18922e-01   1.53916e-01
+cycle=375 time=1.771956e+00 next dt=4.338057e-03 last dt=4.341946e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.93244e-01   3.18889e-01   1.55381e-01
+cycle=376 time=1.776294e+00 next dt=4.333934e-03 last dt=4.338057e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.93344e-01   3.18856e-01   1.56825e-01
+cycle=377 time=1.780628e+00 next dt=4.326754e-03 last dt=4.333934e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.93447e-01   3.18822e-01   1.58250e-01
+cycle=378 time=1.784955e+00 next dt=4.319833e-03 last dt=4.326754e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.93550e-01   3.18787e-01   1.59660e-01
+cycle=379 time=1.789275e+00 next dt=4.313083e-03 last dt=4.319833e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.93656e-01   3.18752e-01   1.61101e-01
+cycle=380 time=1.793588e+00 next dt=4.306699e-03 last dt=4.313083e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.93763e-01   3.18717e-01   1.63020e-01
+cycle=381 time=1.797895e+00 next dt=4.300900e-03 last dt=4.306699e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.93873e-01   3.18680e-01   1.64822e-01
+cycle=382 time=1.802196e+00 next dt=4.295656e-03 last dt=4.300900e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.93983e-01   3.18644e-01   1.66532e-01
+cycle=383 time=1.806491e+00 next dt=4.290871e-03 last dt=4.295656e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.94096e-01   3.18606e-01   1.68175e-01
+cycle=384 time=1.810782e+00 next dt=4.286748e-03 last dt=4.290871e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.94211e-01   3.18569e-01   1.69767e-01
+cycle=385 time=1.815069e+00 next dt=4.283295e-03 last dt=4.286748e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.94327e-01   3.18530e-01   1.71320e-01
+cycle=386 time=1.819352e+00 next dt=4.278192e-03 last dt=4.283295e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.94445e-01   3.18491e-01   1.72846e-01
+cycle=387 time=1.823630e+00 next dt=4.273695e-03 last dt=4.278192e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.94565e-01   3.18452e-01   1.74352e-01
+cycle=388 time=1.827904e+00 next dt=4.268544e-03 last dt=4.273695e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.94687e-01   3.18412e-01   1.75844e-01
+cycle=389 time=1.832173e+00 next dt=4.261490e-03 last dt=4.268544e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.94811e-01   3.18371e-01   1.77323e-01
+cycle=390 time=1.836434e+00 next dt=4.255350e-03 last dt=4.261490e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.94937e-01   3.18330e-01   1.78791e-01
+cycle=391 time=1.840689e+00 next dt=4.247541e-03 last dt=4.255350e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.95064e-01   3.18288e-01   1.80250e-01
+cycle=392 time=1.844937e+00 next dt=4.240221e-03 last dt=4.247541e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.95193e-01   3.18246e-01   1.81795e-01
+cycle=393 time=1.849177e+00 next dt=4.233514e-03 last dt=4.240221e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.95325e-01   3.18204e-01   1.83695e-01
+cycle=394 time=1.853411e+00 next dt=4.227619e-03 last dt=4.233514e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.95458e-01   3.18161e-01   1.85494e-01
+cycle=395 time=1.857638e+00 next dt=4.222888e-03 last dt=4.227619e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.95593e-01   3.18117e-01   1.87214e-01
+cycle=396 time=1.861861e+00 next dt=4.219490e-03 last dt=4.222888e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.95730e-01   3.18073e-01   1.88876e-01
+cycle=397 time=1.866081e+00 next dt=4.217203e-03 last dt=4.219490e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.95869e-01   3.18029e-01   1.90495e-01
+cycle=398 time=1.870298e+00 next dt=4.211746e-03 last dt=4.217203e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.96010e-01   3.17984e-01   1.92078e-01
+cycle=399 time=1.874510e+00 next dt=4.207472e-03 last dt=4.211746e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.96153e-01   3.17940e-01   1.93635e-01
+cycle=400 time=1.878717e+00 next dt=4.204635e-03 last dt=4.207472e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.96298e-01   3.17894e-01   1.95169e-01
+cycle=401 time=1.882922e+00 next dt=4.202374e-03 last dt=4.204635e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.96445e-01   3.17849e-01   1.96687e-01
+cycle=402 time=1.887124e+00 next dt=4.194365e-03 last dt=4.202374e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.96594e-01   3.17803e-01   1.98190e-01
+cycle=403 time=1.891319e+00 next dt=4.187429e-03 last dt=4.194365e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.96744e-01   3.17758e-01   1.99683e-01
+cycle=404 time=1.895506e+00 next dt=4.181927e-03 last dt=4.187429e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.96897e-01   3.17712e-01   2.01171e-01
+cycle=405 time=1.899688e+00 next dt=4.178150e-03 last dt=4.181927e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.97051e-01   3.17665e-01   2.03015e-01
+cycle=406 time=1.903866e+00 next dt=4.174341e-03 last dt=4.178150e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.97207e-01   3.17619e-01   2.04806e-01
+cycle=407 time=1.908040e+00 next dt=4.168127e-03 last dt=4.174341e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.97365e-01   3.17572e-01   2.06522e-01
+cycle=408 time=1.912208e+00 next dt=4.162964e-03 last dt=4.168127e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.97525e-01   3.17525e-01   2.08180e-01
+cycle=409 time=1.916371e+00 next dt=4.159747e-03 last dt=4.162964e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.97687e-01   3.17478e-01   2.09793e-01
+cycle=410 time=1.920531e+00 next dt=4.158239e-03 last dt=4.159747e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.97851e-01   3.17430e-01   2.11424e-01
+cycle=411 time=1.924689e+00 next dt=4.159019e-03 last dt=4.158239e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.98017e-01   3.17382e-01   2.13120e-01
+cycle=412 time=1.928848e+00 next dt=4.155649e-03 last dt=4.159019e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.98185e-01   3.17333e-01   2.14776e-01
+cycle=413 time=1.933004e+00 next dt=4.152941e-03 last dt=4.155649e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.98355e-01   3.17284e-01   2.16400e-01
+cycle=414 time=1.937157e+00 next dt=4.152857e-03 last dt=4.152941e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.98527e-01   3.17235e-01   2.17999e-01
+cycle=415 time=1.941310e+00 next dt=4.146644e-03 last dt=4.152857e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.98701e-01   3.17185e-01   2.19579e-01
+cycle=416 time=1.945457e+00 next dt=4.141059e-03 last dt=4.146644e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.98876e-01   3.17135e-01   2.21151e-01
+cycle=417 time=1.949598e+00 next dt=4.137448e-03 last dt=4.141059e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.99054e-01   3.17084e-01   2.22948e-01
+cycle=418 time=1.953735e+00 next dt=4.135648e-03 last dt=4.137448e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.99233e-01   3.17032e-01   2.24771e-01
+cycle=419 time=1.957871e+00 next dt=4.135760e-03 last dt=4.135648e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.99415e-01   3.16981e-01   2.26520e-01
+cycle=420 time=1.962006e+00 next dt=4.131637e-03 last dt=4.135760e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.99598e-01   3.16928e-01   2.28206e-01
+cycle=421 time=1.966138e+00 next dt=4.128745e-03 last dt=4.131637e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.99783e-01   3.16875e-01   2.29839e-01
+cycle=422 time=1.970267e+00 next dt=4.127759e-03 last dt=4.128745e-03
+[Userwork_in_loop]: scalar dispersion, width =   2.99969e-01   3.16822e-01   2.31427e-01
+cycle=423 time=1.974395e+00 next dt=4.129081e-03 last dt=4.127759e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.00158e-01   3.16767e-01   2.32977e-01
+cycle=424 time=1.978524e+00 next dt=4.131287e-03 last dt=4.129081e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.00348e-01   3.16712e-01   2.34497e-01
+cycle=425 time=1.982655e+00 next dt=4.127457e-03 last dt=4.131287e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.00540e-01   3.16657e-01   2.35990e-01
+cycle=426 time=1.986782e+00 next dt=4.127005e-03 last dt=4.127457e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.00734e-01   3.16601e-01   2.37465e-01
+cycle=427 time=1.990909e+00 next dt=4.130237e-03 last dt=4.127005e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.00930e-01   3.16544e-01   2.38932e-01
+cycle=428 time=1.995040e+00 next dt=4.127318e-03 last dt=4.130237e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.01128e-01   3.16487e-01   2.40401e-01
+cycle=429 time=1.999167e+00 next dt=4.124745e-03 last dt=4.127318e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.01327e-01   3.16429e-01   2.41887e-01
+cycle=430 time=2.003292e+00 next dt=4.123867e-03 last dt=4.124745e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.01528e-01   3.16371e-01   2.43580e-01
+cycle=431 time=2.007416e+00 next dt=4.124716e-03 last dt=4.123867e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.01731e-01   3.16312e-01   2.45246e-01
+cycle=432 time=2.011540e+00 next dt=4.123376e-03 last dt=4.124716e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.01936e-01   3.16254e-01   2.46844e-01
+cycle=433 time=2.015664e+00 next dt=4.121161e-03 last dt=4.123376e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.02142e-01   3.16195e-01   2.48389e-01
+cycle=434 time=2.019785e+00 next dt=4.120710e-03 last dt=4.121161e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.02350e-01   3.16136e-01   2.49889e-01
+cycle=435 time=2.023906e+00 next dt=4.122397e-03 last dt=4.120710e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.02560e-01   3.16077e-01   2.51353e-01
+cycle=436 time=2.028028e+00 next dt=4.126976e-03 last dt=4.122397e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.02772e-01   3.16018e-01   2.52790e-01
+cycle=437 time=2.032155e+00 next dt=4.128341e-03 last dt=4.126976e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.02985e-01   3.15959e-01   2.54203e-01
+cycle=438 time=2.036283e+00 next dt=4.127984e-03 last dt=4.128341e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.03200e-01   3.15900e-01   2.55596e-01
+cycle=439 time=2.040411e+00 next dt=4.131361e-03 last dt=4.127984e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.03416e-01   3.15841e-01   2.56983e-01
+cycle=440 time=2.044543e+00 next dt=4.136155e-03 last dt=4.131361e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.03635e-01   3.15783e-01   2.58372e-01
+cycle=441 time=2.048679e+00 next dt=4.134251e-03 last dt=4.136155e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.03855e-01   3.15725e-01   2.59766e-01
+cycle=442 time=2.052813e+00 next dt=4.133908e-03 last dt=4.134251e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.04076e-01   3.15668e-01   2.61170e-01
+cycle=443 time=2.056947e+00 next dt=4.135131e-03 last dt=4.133908e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.04299e-01   3.15611e-01   2.62593e-01
+cycle=444 time=2.061082e+00 next dt=4.138002e-03 last dt=4.135131e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.04524e-01   3.15555e-01   2.64092e-01
+cycle=445 time=2.065220e+00 next dt=4.136962e-03 last dt=4.138002e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.04750e-01   3.15499e-01   2.65601e-01
+cycle=446 time=2.069357e+00 next dt=4.137324e-03 last dt=4.136962e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.04977e-01   3.15443e-01   2.67047e-01
+cycle=447 time=2.073494e+00 next dt=4.139202e-03 last dt=4.137324e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.05206e-01   3.15388e-01   2.68441e-01
+cycle=448 time=2.077634e+00 next dt=4.142784e-03 last dt=4.139202e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.05437e-01   3.15333e-01   2.69791e-01
+cycle=449 time=2.081776e+00 next dt=4.148491e-03 last dt=4.142784e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.05669e-01   3.15278e-01   2.71102e-01
+cycle=450 time=2.085925e+00 next dt=4.153939e-03 last dt=4.148491e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.05903e-01   3.15224e-01   2.72416e-01
+cycle=451 time=2.090079e+00 next dt=4.155317e-03 last dt=4.153939e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.06138e-01   3.15170e-01   2.73728e-01
+cycle=452 time=2.094234e+00 next dt=4.159124e-03 last dt=4.155317e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.06374e-01   3.15116e-01   2.75014e-01
+cycle=453 time=2.098393e+00 next dt=4.165232e-03 last dt=4.159124e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.06613e-01   3.15062e-01   2.76284e-01
+cycle=454 time=2.102558e+00 next dt=4.165799e-03 last dt=4.165232e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.06852e-01   3.15008e-01   2.77543e-01
+cycle=455 time=2.106724e+00 next dt=4.166172e-03 last dt=4.165799e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.07093e-01   3.14955e-01   2.78796e-01
+cycle=456 time=2.110890e+00 next dt=4.167778e-03 last dt=4.166172e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.07335e-01   3.14903e-01   2.80048e-01
+cycle=457 time=2.115058e+00 next dt=4.170457e-03 last dt=4.167778e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.07579e-01   3.14850e-01   2.81303e-01
+cycle=458 time=2.119229e+00 next dt=4.174046e-03 last dt=4.170457e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.07824e-01   3.14798e-01   2.82564e-01
+cycle=459 time=2.123403e+00 next dt=4.178382e-03 last dt=4.174046e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.08070e-01   3.14747e-01   2.83833e-01
+cycle=460 time=2.127581e+00 next dt=4.180401e-03 last dt=4.178382e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.08318e-01   3.14696e-01   2.85115e-01
+cycle=461 time=2.131761e+00 next dt=4.182808e-03 last dt=4.180401e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.08567e-01   3.14647e-01   2.86411e-01
+cycle=462 time=2.135944e+00 next dt=4.186152e-03 last dt=4.182808e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.08817e-01   3.14597e-01   2.87677e-01
+cycle=463 time=2.140130e+00 next dt=4.190677e-03 last dt=4.186152e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.09069e-01   3.14549e-01   2.88905e-01
+cycle=464 time=2.144321e+00 next dt=4.196472e-03 last dt=4.190677e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.09322e-01   3.14501e-01   2.90096e-01
+cycle=465 time=2.148518e+00 next dt=4.203525e-03 last dt=4.196472e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.09576e-01   3.14454e-01   2.91262e-01
+cycle=466 time=2.152721e+00 next dt=4.206670e-03 last dt=4.203525e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.09832e-01   3.14408e-01   2.92406e-01
+cycle=467 time=2.156928e+00 next dt=4.210128e-03 last dt=4.206670e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.10089e-01   3.14363e-01   2.93533e-01
+cycle=468 time=2.161138e+00 next dt=4.211934e-03 last dt=4.210128e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.10346e-01   3.14319e-01   2.94646e-01
+cycle=469 time=2.165350e+00 next dt=4.214302e-03 last dt=4.211934e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.10605e-01   3.14276e-01   2.95748e-01
+cycle=470 time=2.169564e+00 next dt=4.217193e-03 last dt=4.214302e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.10865e-01   3.14234e-01   2.96841e-01
+cycle=471 time=2.173781e+00 next dt=4.220137e-03 last dt=4.217193e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.11126e-01   3.14193e-01   2.97927e-01
+cycle=472 time=2.178001e+00 next dt=4.222307e-03 last dt=4.220137e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.11388e-01   3.14154e-01   2.99009e-01
+cycle=473 time=2.182224e+00 next dt=4.224937e-03 last dt=4.222307e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.11651e-01   3.14115e-01   3.00088e-01
+cycle=474 time=2.186449e+00 next dt=4.228003e-03 last dt=4.224937e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.11916e-01   3.14078e-01   3.01164e-01
+cycle=475 time=2.190677e+00 next dt=4.231456e-03 last dt=4.228003e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.12181e-01   3.14043e-01   3.02236e-01
+cycle=476 time=2.194908e+00 next dt=4.235390e-03 last dt=4.231456e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.12447e-01   3.14009e-01   3.03306e-01
+cycle=477 time=2.199144e+00 next dt=4.239803e-03 last dt=4.235390e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.12714e-01   3.13977e-01   3.04373e-01
+cycle=478 time=2.203383e+00 next dt=4.244691e-03 last dt=4.239803e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.12983e-01   3.13946e-01   3.05439e-01
+cycle=479 time=2.207628e+00 next dt=4.247724e-03 last dt=4.244691e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.13252e-01   3.13918e-01   3.06502e-01
+cycle=480 time=2.211876e+00 next dt=4.251235e-03 last dt=4.247724e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.13522e-01   3.13891e-01   3.07557e-01
+cycle=481 time=2.216127e+00 next dt=4.255345e-03 last dt=4.251235e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.13793e-01   3.13866e-01   3.08607e-01
+cycle=482 time=2.220382e+00 next dt=4.260139e-03 last dt=4.255345e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.14065e-01   3.13842e-01   3.09648e-01
+cycle=483 time=2.224643e+00 next dt=4.261507e-03 last dt=4.260139e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.14337e-01   3.13821e-01   3.10637e-01
+cycle=484 time=2.228904e+00 next dt=4.260710e-03 last dt=4.261507e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.14610e-01   3.13802e-01   3.11569e-01
+cycle=485 time=2.233165e+00 next dt=4.258693e-03 last dt=4.260710e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.14883e-01   3.13785e-01   3.12469e-01
+cycle=486 time=2.237423e+00 next dt=4.255711e-03 last dt=4.258693e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.15157e-01   3.13770e-01   3.13340e-01
+cycle=487 time=2.241679e+00 next dt=4.254066e-03 last dt=4.255711e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.15430e-01   3.13757e-01   3.14185e-01
+cycle=488 time=2.245933e+00 next dt=4.253738e-03 last dt=4.254066e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.15704e-01   3.13746e-01   3.15009e-01
+cycle=489 time=2.250187e+00 next dt=4.254466e-03 last dt=4.253738e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.15978e-01   3.13737e-01   3.15815e-01
+cycle=490 time=2.254441e+00 next dt=4.255862e-03 last dt=4.254466e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.16252e-01   3.13731e-01   3.16606e-01
+cycle=491 time=2.258697e+00 next dt=4.254310e-03 last dt=4.255862e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.16527e-01   3.13727e-01   3.17415e-01
+cycle=492 time=2.262952e+00 next dt=4.253300e-03 last dt=4.254310e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.16801e-01   3.13725e-01   3.18227e-01
+cycle=493 time=2.267205e+00 next dt=4.253411e-03 last dt=4.253300e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.17076e-01   3.13725e-01   3.19036e-01
+cycle=494 time=2.271458e+00 next dt=4.254237e-03 last dt=4.253411e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.17350e-01   3.13728e-01   3.19845e-01
+cycle=495 time=2.275713e+00 next dt=4.254803e-03 last dt=4.254237e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.17625e-01   3.13733e-01   3.20658e-01
+cycle=496 time=2.279967e+00 next dt=4.250360e-03 last dt=4.254803e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.17898e-01   3.13740e-01   3.21474e-01
+cycle=497 time=2.284218e+00 next dt=4.246597e-03 last dt=4.250360e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.18172e-01   3.13749e-01   3.22296e-01
+cycle=498 time=2.288464e+00 next dt=4.243309e-03 last dt=4.246597e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.18445e-01   3.13760e-01   3.23125e-01
+cycle=499 time=2.292708e+00 next dt=4.234745e-03 last dt=4.243309e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.18718e-01   3.13774e-01   3.23958e-01
+cycle=500 time=2.296942e+00 next dt=4.224875e-03 last dt=4.234745e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.18989e-01   3.13789e-01   3.24798e-01
+cycle=501 time=2.301167e+00 next dt=4.213207e-03 last dt=4.224875e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.19260e-01   3.13807e-01   3.25647e-01
+cycle=502 time=2.305380e+00 next dt=4.201560e-03 last dt=4.213207e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.19529e-01   3.13826e-01   3.26504e-01
+cycle=503 time=2.309582e+00 next dt=4.191434e-03 last dt=4.201560e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.19798e-01   3.13847e-01   3.27370e-01
+cycle=504 time=2.313773e+00 next dt=4.182575e-03 last dt=4.191434e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.20065e-01   3.13870e-01   3.28244e-01
+cycle=505 time=2.317956e+00 next dt=4.174840e-03 last dt=4.182575e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.20331e-01   3.13894e-01   3.29125e-01
+cycle=506 time=2.322131e+00 next dt=4.168159e-03 last dt=4.174840e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.20597e-01   3.13920e-01   3.30011e-01
+cycle=507 time=2.326299e+00 next dt=4.162667e-03 last dt=4.168159e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.20862e-01   3.13948e-01   3.30903e-01
+cycle=508 time=2.330462e+00 next dt=4.157025e-03 last dt=4.162667e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.21126e-01   3.13977e-01   3.31800e-01
+cycle=509 time=2.334619e+00 next dt=4.149579e-03 last dt=4.157025e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.21389e-01   3.14008e-01   3.32700e-01
+cycle=510 time=2.338768e+00 next dt=4.143373e-03 last dt=4.149579e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.21651e-01   3.14039e-01   3.33605e-01
+cycle=511 time=2.342912e+00 next dt=4.138192e-03 last dt=4.143373e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.21912e-01   3.14073e-01   3.34515e-01
+cycle=512 time=2.347050e+00 next dt=4.133973e-03 last dt=4.138192e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.22172e-01   3.14107e-01   3.35429e-01
+cycle=513 time=2.351184e+00 next dt=4.130747e-03 last dt=4.133973e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.22432e-01   3.14143e-01   3.36347e-01
+cycle=514 time=2.355315e+00 next dt=4.128549e-03 last dt=4.130747e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.22690e-01   3.14179e-01   3.37269e-01
+cycle=515 time=2.359443e+00 next dt=4.124885e-03 last dt=4.128549e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.22948e-01   3.14216e-01   3.38175e-01
+cycle=516 time=2.363568e+00 next dt=4.121167e-03 last dt=4.124885e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.23205e-01   3.14255e-01   3.39032e-01
+cycle=517 time=2.367689e+00 next dt=4.118565e-03 last dt=4.121167e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.23460e-01   3.14294e-01   3.39884e-01
+cycle=518 time=2.371808e+00 next dt=4.117236e-03 last dt=4.118565e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.23715e-01   3.14333e-01   3.40732e-01
+cycle=519 time=2.375925e+00 next dt=4.116961e-03 last dt=4.117236e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.23969e-01   3.14374e-01   3.41576e-01
+cycle=520 time=2.380042e+00 next dt=4.113757e-03 last dt=4.116961e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.24222e-01   3.14414e-01   3.42414e-01
+cycle=521 time=2.384156e+00 next dt=4.111431e-03 last dt=4.113757e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.24474e-01   3.14455e-01   3.43248e-01
+cycle=522 time=2.388267e+00 next dt=4.110215e-03 last dt=4.111431e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.24725e-01   3.14496e-01   3.44077e-01
+cycle=523 time=2.392377e+00 next dt=4.110323e-03 last dt=4.110215e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.24976e-01   3.14538e-01   3.44903e-01
+cycle=524 time=2.396488e+00 next dt=4.109149e-03 last dt=4.110323e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.25226e-01   3.14579e-01   3.45727e-01
+cycle=525 time=2.400597e+00 next dt=4.097142e-03 last dt=4.109149e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.25475e-01   3.14620e-01   3.46548e-01
+cycle=526 time=2.404694e+00 next dt=4.087168e-03 last dt=4.097142e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.25722e-01   3.14661e-01   3.47368e-01
+cycle=527 time=2.408781e+00 next dt=4.078710e-03 last dt=4.087168e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.25968e-01   3.14702e-01   3.48189e-01
+cycle=528 time=2.412860e+00 next dt=4.070346e-03 last dt=4.078710e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.26213e-01   3.14743e-01   3.49125e-01
+cycle=529 time=2.416930e+00 next dt=4.059775e-03 last dt=4.070346e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.26456e-01   3.14783e-01   3.50067e-01
+cycle=530 time=2.420990e+00 next dt=4.051052e-03 last dt=4.059775e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.26698e-01   3.14824e-01   3.51015e-01
+cycle=531 time=2.425041e+00 next dt=4.044428e-03 last dt=4.051052e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.26940e-01   3.14864e-01   3.51971e-01
+cycle=532 time=2.429085e+00 next dt=4.039912e-03 last dt=4.044428e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.27180e-01   3.14904e-01   3.52935e-01
+cycle=533 time=2.433125e+00 next dt=4.037210e-03 last dt=4.039912e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.27420e-01   3.14944e-01   3.53904e-01
+cycle=534 time=2.437163e+00 next dt=4.029820e-03 last dt=4.037210e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.27659e-01   3.14983e-01   3.54876e-01
+cycle=535 time=2.441192e+00 next dt=4.023849e-03 last dt=4.029820e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.27897e-01   3.15023e-01   3.55853e-01
+cycle=536 time=2.445216e+00 next dt=4.019957e-03 last dt=4.023849e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.28135e-01   3.15062e-01   3.56831e-01
+cycle=537 time=2.449236e+00 next dt=4.019155e-03 last dt=4.019957e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.28371e-01   3.15101e-01   3.57812e-01
+cycle=538 time=2.453255e+00 next dt=4.015293e-03 last dt=4.019155e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.28607e-01   3.15139e-01   3.58790e-01
+cycle=539 time=2.457271e+00 next dt=4.010072e-03 last dt=4.015293e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.28843e-01   3.15177e-01   3.59764e-01
+cycle=540 time=2.461281e+00 next dt=4.007925e-03 last dt=4.010072e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.29077e-01   3.15215e-01   3.60734e-01
+cycle=541 time=2.465289e+00 next dt=4.008702e-03 last dt=4.007925e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.29312e-01   3.15253e-01   3.61700e-01
+cycle=542 time=2.469297e+00 next dt=4.008940e-03 last dt=4.008702e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.29546e-01   3.15290e-01   3.62663e-01
+cycle=543 time=2.473306e+00 next dt=4.004010e-03 last dt=4.008940e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.29779e-01   3.15327e-01   3.63622e-01
+cycle=544 time=2.477310e+00 next dt=4.001938e-03 last dt=4.004010e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.30012e-01   3.15363e-01   3.64579e-01
+cycle=545 time=2.481312e+00 next dt=4.002817e-03 last dt=4.001938e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.30245e-01   3.15399e-01   3.65535e-01
+cycle=546 time=2.485315e+00 next dt=4.007768e-03 last dt=4.002817e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.30477e-01   3.15435e-01   3.66493e-01
+cycle=547 time=2.489323e+00 next dt=4.002093e-03 last dt=4.007768e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.30710e-01   3.15469e-01   3.67452e-01
+cycle=548 time=2.493325e+00 next dt=4.000358e-03 last dt=4.002093e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.30942e-01   3.15503e-01   3.68415e-01
+cycle=549 time=2.497325e+00 next dt=4.002952e-03 last dt=4.000358e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.31174e-01   3.15536e-01   3.69386e-01
+cycle=550 time=2.501328e+00 next dt=4.009613e-03 last dt=4.002952e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.31406e-01   3.15569e-01   3.70366e-01
+cycle=551 time=2.505338e+00 next dt=4.008884e-03 last dt=4.009613e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.31637e-01   3.15600e-01   3.71358e-01
+cycle=552 time=2.509347e+00 next dt=4.006023e-03 last dt=4.008884e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.31869e-01   3.15631e-01   3.72357e-01
+cycle=553 time=2.513353e+00 next dt=4.008383e-03 last dt=4.006023e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.32100e-01   3.15661e-01   3.73465e-01
+cycle=554 time=2.517361e+00 next dt=4.011718e-03 last dt=4.008383e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.32331e-01   3.15689e-01   3.74631e-01
+cycle=555 time=2.521373e+00 next dt=4.009592e-03 last dt=4.011718e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.32561e-01   3.15717e-01   3.75799e-01
+cycle=556 time=2.525382e+00 next dt=4.002110e-03 last dt=4.009592e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.32791e-01   3.15743e-01   3.76967e-01
+cycle=557 time=2.529384e+00 next dt=3.998673e-03 last dt=4.002110e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.33021e-01   3.15768e-01   3.78132e-01
+cycle=558 time=2.533383e+00 next dt=3.999693e-03 last dt=3.998673e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.33251e-01   3.15792e-01   3.79293e-01
+cycle=559 time=2.537383e+00 next dt=4.005364e-03 last dt=3.999693e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.33481e-01   3.15815e-01   3.80403e-01
+cycle=560 time=2.541388e+00 next dt=3.998643e-03 last dt=4.005364e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.33711e-01   3.15836e-01   3.81495e-01
+cycle=561 time=2.545387e+00 next dt=3.996528e-03 last dt=3.998643e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.33940e-01   3.15856e-01   3.82576e-01
+cycle=562 time=2.549383e+00 next dt=3.998224e-03 last dt=3.996528e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.34170e-01   3.15875e-01   3.83647e-01
+cycle=563 time=2.553382e+00 next dt=4.004908e-03 last dt=3.998224e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.34400e-01   3.15892e-01   3.84709e-01
+cycle=564 time=2.557387e+00 next dt=4.002209e-03 last dt=4.004908e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.34629e-01   3.15908e-01   3.85762e-01
+cycle=565 time=2.561389e+00 next dt=3.999381e-03 last dt=4.002209e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.34859e-01   3.15923e-01   3.86807e-01
+cycle=566 time=2.565388e+00 next dt=4.002282e-03 last dt=3.999381e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.35089e-01   3.15936e-01   3.87849e-01
+cycle=567 time=2.569390e+00 next dt=4.010538e-03 last dt=4.002282e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.35319e-01   3.15948e-01   3.88888e-01
+cycle=568 time=2.573401e+00 next dt=4.013579e-03 last dt=4.010538e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.35550e-01   3.15959e-01   3.89926e-01
+cycle=569 time=2.577415e+00 next dt=4.009782e-03 last dt=4.013579e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.35780e-01   3.15968e-01   3.90962e-01
+cycle=570 time=2.581424e+00 next dt=4.012865e-03 last dt=4.009782e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.36011e-01   3.15976e-01   3.92001e-01
+cycle=571 time=2.585437e+00 next dt=4.022552e-03 last dt=4.012865e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.36242e-01   3.15984e-01   3.93045e-01
+cycle=572 time=2.589460e+00 next dt=4.031864e-03 last dt=4.022552e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.36474e-01   3.15990e-01   3.94089e-01
+cycle=573 time=2.593492e+00 next dt=4.026892e-03 last dt=4.031864e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.36705e-01   3.15995e-01   3.95127e-01
+cycle=574 time=2.597518e+00 next dt=4.028793e-03 last dt=4.026892e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.36936e-01   3.16000e-01   3.96162e-01
+cycle=575 time=2.601547e+00 next dt=4.038684e-03 last dt=4.028793e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.37168e-01   3.16003e-01   3.97224e-01
+cycle=576 time=2.605586e+00 next dt=4.055671e-03 last dt=4.038684e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.37400e-01   3.16007e-01   3.98313e-01
+cycle=577 time=2.609642e+00 next dt=4.050659e-03 last dt=4.055671e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.37633e-01   3.16010e-01   3.99372e-01
+cycle=578 time=2.613692e+00 next dt=4.051230e-03 last dt=4.050659e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.37865e-01   3.16014e-01   4.00401e-01
+cycle=579 time=2.617743e+00 next dt=4.060140e-03 last dt=4.051230e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.38097e-01   3.16018e-01   4.01396e-01
+cycle=580 time=2.621804e+00 next dt=4.067785e-03 last dt=4.060140e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.38330e-01   3.16022e-01   4.02367e-01
+cycle=581 time=2.625871e+00 next dt=4.062965e-03 last dt=4.067785e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.38563e-01   3.16028e-01   4.03310e-01
+cycle=582 time=2.629934e+00 next dt=4.064765e-03 last dt=4.062965e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.38795e-01   3.16034e-01   4.04224e-01
+cycle=583 time=2.633999e+00 next dt=4.073228e-03 last dt=4.064765e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.39028e-01   3.16042e-01   4.05104e-01
+cycle=584 time=2.638072e+00 next dt=4.077763e-03 last dt=4.073228e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.39261e-01   3.16051e-01   4.05937e-01
+cycle=585 time=2.642150e+00 next dt=4.072676e-03 last dt=4.077763e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.39494e-01   3.16061e-01   4.06711e-01
+cycle=586 time=2.646223e+00 next dt=4.075105e-03 last dt=4.072676e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.39727e-01   3.16073e-01   4.07432e-01
+cycle=587 time=2.650298e+00 next dt=4.085643e-03 last dt=4.075105e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.39960e-01   3.16087e-01   4.08097e-01
+cycle=588 time=2.654384e+00 next dt=4.092719e-03 last dt=4.085643e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.40193e-01   3.16104e-01   4.08703e-01
+cycle=589 time=2.658476e+00 next dt=4.087031e-03 last dt=4.092719e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.40426e-01   3.16124e-01   4.09239e-01
+cycle=590 time=2.662563e+00 next dt=4.090376e-03 last dt=4.087031e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.40658e-01   3.16147e-01   4.09692e-01
+cycle=591 time=2.666654e+00 next dt=4.102595e-03 last dt=4.090376e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.40891e-01   3.16175e-01   4.10044e-01
+cycle=592 time=2.670756e+00 next dt=4.114320e-03 last dt=4.102595e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.41124e-01   3.16206e-01   4.10286e-01
+cycle=593 time=2.674871e+00 next dt=4.107202e-03 last dt=4.114320e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.41356e-01   3.16242e-01   4.10415e-01
+cycle=594 time=2.678978e+00 next dt=4.110259e-03 last dt=4.107202e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.41588e-01   3.16282e-01   4.10415e-01
+cycle=595 time=2.683088e+00 next dt=4.122884e-03 last dt=4.110259e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.41820e-01   3.16327e-01   4.10221e-01
+cycle=596 time=2.687211e+00 next dt=4.142777e-03 last dt=4.122884e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.42052e-01   3.16375e-01   4.09800e-01
+cycle=597 time=2.691354e+00 next dt=4.134366e-03 last dt=4.142777e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.42283e-01   3.16427e-01   4.09179e-01
+cycle=598 time=2.695488e+00 next dt=4.136349e-03 last dt=4.134366e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.42514e-01   3.16483e-01   4.08341e-01
+cycle=599 time=2.699624e+00 next dt=4.148962e-03 last dt=4.136349e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.42745e-01   3.16542e-01   4.07278e-01
+cycle=600 time=2.703773e+00 next dt=4.169650e-03 last dt=4.148962e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.42977e-01   3.16606e-01   4.06043e-01
+cycle=601 time=2.707943e+00 next dt=4.169197e-03 last dt=4.169650e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.43208e-01   3.16673e-01   4.04672e-01
+cycle=602 time=2.712112e+00 next dt=4.168413e-03 last dt=4.169197e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.43439e-01   3.16744e-01   4.03184e-01
+cycle=603 time=2.716281e+00 next dt=4.178853e-03 last dt=4.168413e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.43670e-01   3.16819e-01   4.01566e-01
+cycle=604 time=2.720460e+00 next dt=4.189753e-03 last dt=4.178853e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.43900e-01   3.16898e-01   3.99832e-01
+cycle=605 time=2.724649e+00 next dt=4.201550e-03 last dt=4.189753e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.44131e-01   3.16981e-01   3.97989e-01
+cycle=606 time=2.728851e+00 next dt=4.207181e-03 last dt=4.201550e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.44360e-01   3.17068e-01   3.96056e-01
+cycle=607 time=2.733058e+00 next dt=4.207036e-03 last dt=4.207181e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.44589e-01   3.17159e-01   3.94280e-01
+cycle=608 time=2.737265e+00 next dt=4.212486e-03 last dt=4.207036e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.44817e-01   3.17254e-01   3.92490e-01
+cycle=609 time=2.741478e+00 next dt=4.227050e-03 last dt=4.212486e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.45044e-01   3.17353e-01   3.90683e-01
+cycle=610 time=2.745705e+00 next dt=4.237690e-03 last dt=4.227050e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.45271e-01   3.17456e-01   3.88865e-01
+cycle=611 time=2.749942e+00 next dt=4.235158e-03 last dt=4.237690e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.45498e-01   3.17563e-01   3.87044e-01
+cycle=612 time=2.754177e+00 next dt=4.243620e-03 last dt=4.235158e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.45723e-01   3.17674e-01   3.85219e-01
+cycle=613 time=2.758421e+00 next dt=4.261323e-03 last dt=4.243620e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.45949e-01   3.17788e-01   3.83417e-01
+cycle=614 time=2.762682e+00 next dt=4.271417e-03 last dt=4.261323e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.46174e-01   3.17905e-01   3.82064e-01
+cycle=615 time=2.766954e+00 next dt=4.265043e-03 last dt=4.271417e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.46398e-01   3.18025e-01   3.80823e-01
+cycle=616 time=2.771219e+00 next dt=4.244062e-03 last dt=4.265043e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.46620e-01   3.18147e-01   3.79713e-01
+cycle=617 time=2.775463e+00 next dt=4.227122e-03 last dt=4.244062e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.46841e-01   3.18270e-01   3.78743e-01
+cycle=618 time=2.779690e+00 next dt=4.212336e-03 last dt=4.227122e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.47059e-01   3.18395e-01   3.77922e-01
+cycle=619 time=2.783902e+00 next dt=4.198925e-03 last dt=4.212336e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.47276e-01   3.18522e-01   3.77254e-01
+cycle=620 time=2.788101e+00 next dt=4.186392e-03 last dt=4.198925e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.47491e-01   3.18651e-01   3.76740e-01
+cycle=621 time=2.792288e+00 next dt=4.173899e-03 last dt=4.186392e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.47705e-01   3.18781e-01   3.76375e-01
+cycle=622 time=2.796462e+00 next dt=4.160177e-03 last dt=4.173899e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.47916e-01   3.18912e-01   3.76156e-01
+cycle=623 time=2.800622e+00 next dt=4.148419e-03 last dt=4.160177e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.48126e-01   3.19044e-01   3.76076e-01
+cycle=624 time=2.804770e+00 next dt=4.135592e-03 last dt=4.148419e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.48334e-01   3.19177e-01   3.76126e-01
+cycle=625 time=2.808906e+00 next dt=4.122325e-03 last dt=4.135592e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.48541e-01   3.19310e-01   3.76292e-01
+cycle=626 time=2.813028e+00 next dt=4.111475e-03 last dt=4.122325e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.48746e-01   3.19445e-01   3.76570e-01
+cycle=627 time=2.817140e+00 next dt=4.101306e-03 last dt=4.111475e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.48949e-01   3.19580e-01   3.76935e-01
+cycle=628 time=2.821241e+00 next dt=4.091595e-03 last dt=4.101306e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.49152e-01   3.19716e-01   3.77078e-01
+cycle=629 time=2.825332e+00 next dt=4.082115e-03 last dt=4.091595e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.49352e-01   3.19852e-01   3.77259e-01
+cycle=630 time=2.829415e+00 next dt=4.072726e-03 last dt=4.082115e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.49552e-01   3.19990e-01   3.77467e-01
+cycle=631 time=2.833487e+00 next dt=4.063378e-03 last dt=4.072726e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.49750e-01   3.20127e-01   3.77691e-01
+cycle=632 time=2.837551e+00 next dt=4.054058e-03 last dt=4.063378e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.49946e-01   3.20265e-01   3.77923e-01
+cycle=633 time=2.841605e+00 next dt=4.045118e-03 last dt=4.054058e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.50142e-01   3.20407e-01   3.78153e-01
+cycle=634 time=2.845650e+00 next dt=4.036904e-03 last dt=4.045118e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.50336e-01   3.20552e-01   3.78376e-01
+cycle=635 time=2.849687e+00 next dt=4.029067e-03 last dt=4.036904e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.50528e-01   3.20697e-01   3.78598e-01
+cycle=636 time=2.853716e+00 next dt=3.424184e-03 last dt=4.029067e-03
+[Userwork_in_loop]: scalar dispersion, width =   3.50692e-01   3.20820e-01   3.78781e-01
+cycle=637 time=2.857140e+00 next dt=4.013552e-03 last dt=3.424184e-03
+
+terminating on time limit
+  tlim= 2.857140e+00   nlim= 100000
+  time= 2.857140e+00  cycle= 637
+
+zone-cycles/cpu-second = 6.379345e+05
+
+elapsed wall time = 1.636419e+01 sec.
+
+zone-cycles/wall-second = 6.377712e+05
+
+Simulation terminated on Mon Jul 13 10:54:37 2015
